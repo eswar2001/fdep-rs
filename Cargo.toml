@@ -1,0 +1,12 @@
+[package]
+name = "rust-ast-printer"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+# No external dependencies needed
+
+# This marks the crate as requiring rustc_private features
+# Note: This technically makes the crate nightly-only
+[package.metadata.rust-analyzer]
+rustc_private = true
