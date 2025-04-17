@@ -15,13 +15,13 @@ use rustc_hir::intravisit::{self, walk_expr, walk_item, Visitor};
 use rustc_hir::QPath::Resolved;
 use rustc_hir::{BodyId, Expr, ExprKind, HirId, Item, ItemKind, QPath};
 use rustc_interface::{interface, Queries};
+use rustc_middle::ty::GenericArgKind;
 use rustc_middle::ty::{self, TyCtxt, TyKind};
 use rustc_span::Span;
 use serde::Serialize;
 use std::collections::HashMap;
 use std::env;
 use std::fmt::format;
-use rustc_middle::ty::GenericArgKind;
 
 #[derive(Debug, Serialize, Clone)]
 struct TypeOriginInfo {
@@ -41,10 +41,9 @@ struct FunctionCalled {
     #[serde(rename = "type_enum")]
     type_enum: String,
     id: Option<String>,
-    function_signature: Option<TypeOriginInfo>
-    // type_info: Option<TypeOriginInfo>,
-    // argument_types: Option<Vec<TypeOriginInfo>>,
-    // return_type: Option<TypeOriginInfo>,
+    function_signature: Option<TypeOriginInfo>, // type_info: Option<TypeOriginInfo>,
+                                                // argument_types: Option<Vec<TypeOriginInfo>>,
+                                                // return_type: Option<TypeOriginInfo>,
 }
 
 #[derive(Debug, Serialize)]
@@ -133,7 +132,8 @@ impl<'tcx> Visitor<'tcx> for Collector<'tcx> {
                                     let fn_ty = self.tcx.type_of(def_id);
 
                                     // Extract function type info
-                                    let type_info = extract_type_info(self.tcx, fn_ty.skip_binder());
+                                    let type_info =
+                                        extract_type_info(self.tcx, fn_ty.skip_binder());
 
                                     // Extract argument types
                                     let mut arg_types = Vec::new();
@@ -178,18 +178,19 @@ impl<'tcx> Visitor<'tcx> for Collector<'tcx> {
                             let closure_name =
                                 format!("{}$closure${}", self.parent_fn, self.closure_count);
                             // let loc = self
-                                // .tcx
-                                // .sess
-                                // .source_map()
-                                // .span_to_embeddable_string(expr.span);
-                            let end_loc = self.tcx.sess.source_map().lookup_char_pos(expr.span.hi());
+                            // .tcx
+                            // .sess
+                            // .source_map()
+                            // .span_to_embeddable_string(expr.span);
+                            let end_loc =
+                                self.tcx.sess.source_map().lookup_char_pos(expr.span.hi());
                             let loc = self.tcx.sess.source_map().lookup_char_pos(expr.span.lo());
                             // Extract closure type with detailed info
                             let closure_ty = typeck.expr_ty(expr);
                             let type_info_some = extract_type_info(self.tcx, closure_ty);
                             let type_info = match type_info_some {
                                 Some(x) => vec![x],
-                                None => Vec::new()
+                                None => Vec::new(),
                             };
                             // let closure_ty = typeck.expr_ty(expr);
                             // let type_info = extract_type_info(self.tcx, closure_ty);
@@ -216,53 +217,13 @@ impl<'tcx> Visitor<'tcx> for Collector<'tcx> {
                                 type_enum: "where_function".to_string(),
                                 functions_called: inner_calls,
                                 where_functions: inner_where_functions,
-                                line_number_start:loc.line,
+                                line_number_start: loc.line,
                                 line_number_end: end_loc.line,
                             };
                             self.where_functions.insert(closure_name.clone(), wf);
                         }
-                        ExprKind::Path(Resolved(_, path)) => {
-                            // Path resolution (kept from original code)
-                            let unique_name = match path.res {
-                                Res::Def(_, def_id) => {
-                                    let crate_name = self.tcx.crate_name(def_id.krate).to_string();
-                                    let path = self.tcx.def_path_str(def_id);
-                                    format!("{}::{}", crate_name, path)
-                                }
-                                Res::PrimTy(prim_ty) => format!("primitive::{:?}", prim_ty),
-                                Res::SelfTyParam { trait_ } => {
-                                    let crate_name = self.tcx.crate_name(trait_.krate).to_string();
-                                    let path = self.tcx.def_path_str(trait_);
-                                    format!("{}::{}::SelfTyParam", crate_name, path)
-                                }
-                                Res::SelfTyAlias { alias_to, .. } => {
-                                    let crate_name =
-                                        self.tcx.crate_name(alias_to.krate).to_string();
-                                    let path = self.tcx.def_path_str(alias_to);
-                                    format!("{}::{}::SelfTyAlias", crate_name, path)
-                                }
-                                Res::SelfCtor(impl_def_id) => {
-                                    let crate_name =
-                                        self.tcx.crate_name(impl_def_id.krate).to_string();
-                                    let path = self.tcx.def_path_str(impl_def_id);
-                                    format!("{}::{}::SelfCtor", crate_name, path)
-                                }
-                                Res::Local(hir_id) => {
-                                    let owner = hir_id.owner.to_def_id();
-                                    let owner_path = self.tcx.def_path_str(owner);
-                                    format!("local::{}::{}", owner_path, hir_id.local_id.index())
-                                }
-                                Res::ToolMod => "tool_mod".to_string(),
-                                Res::NonMacroAttr(kind) => {
-                                    let kind_str = format!("{:?}",kind);
-                                    format!("attribute::{}", kind_str)
-                                }
-                                Res::Err => "error".to_string(),
-                            };
-                        }
                         _ => {}
                     }
-
                     walk_expr(self, expr);
                 }
             }
@@ -740,7 +701,7 @@ fn extract_type_info<'tcx>(tcx: TyCtxt<'tcx>, ty: ty::Ty<'tcx>) -> Option<TypeOr
                         // if let rustc_middle::mir::interpret::ConstValue::Scalar(scalar) = val {
                         //     format!("{}", scalar.to_bits(scalar.size()).unwrap_or(0))
                         // } else {
-                            "?".to_string()
+                        "?".to_string()
                         // }
                     }
                     _ => "?".to_string(),
