@@ -1,17 +1,20 @@
 [package]
-name = "fdep-rust"
+name = "fdep"
 version = "0.1.0"
-edition = "2021"
 
 [dependencies]
-anyhow = "1.0.98"
-serde = { version = "1.0.219", features = ["derive"] }
-serde_json = "1.0.140"
-thiserror = "2.0.12"
-walkdir = "2.5.0"
-# No external dependencies needed
+cargo_metadata = "0.18.1"
+serde = { version = "1.0.204", features = ["derive"] }
+serde_json = "1.0.122"
+rustc_version = "0.4.0"
+wait-timeout = "0.2.0"
+which = "6.0.2"
 
-# This marks the crate as requiring rustc_private features
-# Note: This technically makes the crate nightly-only
+[[bin]]
+name = "fdep"
+
+[[bin]]
+name = "cargo-fdep"
+
 [package.metadata.rust-analyzer]
 rustc_private = true

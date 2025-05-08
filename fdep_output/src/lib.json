@@ -1,0 +1,3658 @@
+[
+  {
+    "name": "compile_time_sysroot",
+    "fully_qualified_path": "fdep::compile_time_sysroot",
+    "is_method": false,
+    "self_type": null,
+    "input_types": [],
+    "output_types": [
+      {
+        "type_name": "Option",
+        "crate_name": "core",
+        "module_path": "option",
+        "generic_args": [],
+        "is_generic_param": false,
+        "src_location": "src/lib.rs"
+      }
+    ],
+    "types_used": [
+      {
+        "type_name": "Option<String>",
+        "crate_name": "core",
+        "module_path": "option",
+        "generic_args": [
+          {
+            "type_name": "String",
+            "crate_name": "alloc",
+            "module_path": "string",
+            "generic_args": [],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "is_generic_param": false,
+        "src_location": ""
+      },
+      {
+        "type_name": "bool",
+        "crate_name": "core",
+        "module_path": "primitive",
+        "generic_args": [],
+        "is_generic_param": false,
+        "src_location": ""
+      },
+      {
+        "type_name": "fn(&'_ [&'static str; ?], &'_ [Argument; ?]) -> Arguments",
+        "crate_name": "core",
+        "module_path": "fmt::{{impl}}",
+        "generic_args": [
+          {
+            "type_name": "&'_ [&'static str; ?]",
+            "crate_name": "core",
+            "module_path": "primitive",
+            "generic_args": [
+              {
+                "type_name": "[&'static str; ?]",
+                "crate_name": "core",
+                "module_path": "array",
+                "generic_args": [
+                  {
+                    "type_name": "&'static str",
+                    "crate_name": "core",
+                    "module_path": "primitive",
+                    "generic_args": [
+                      {
+                        "type_name": "str",
+                        "crate_name": "core",
+                        "module_path": "primitive",
+                        "generic_args": [],
+                        "is_generic_param": false,
+                        "src_location": ""
+                      }
+                    ],
+                    "is_generic_param": false,
+                    "src_location": ""
+                  }
+                ],
+                "is_generic_param": false,
+                "src_location": ""
+              }
+            ],
+            "is_generic_param": false,
+            "src_location": ""
+          },
+          {
+            "type_name": "&'_ [Argument; ?]",
+            "crate_name": "core",
+            "module_path": "primitive",
+            "generic_args": [
+              {
+                "type_name": "[Argument; ?]",
+                "crate_name": "core",
+                "module_path": "array",
+                "generic_args": [
+                  {
+                    "type_name": "Argument",
+                    "crate_name": "core",
+                    "module_path": "fmt::rt",
+                    "generic_args": [],
+                    "is_generic_param": false,
+                    "src_location": ""
+                  }
+                ],
+                "is_generic_param": false,
+                "src_location": ""
+              }
+            ],
+            "is_generic_param": false,
+            "src_location": ""
+          },
+          {
+            "type_name": "Arguments",
+            "crate_name": "core",
+            "module_path": "fmt",
+            "generic_args": [],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "is_generic_param": false,
+        "src_location": ""
+      },
+      {
+        "type_name": "[&'_ str; usize]",
+        "crate_name": "core",
+        "module_path": "array",
+        "generic_args": [
+          {
+            "type_name": "&'_ str",
+            "crate_name": "core",
+            "module_path": "primitive",
+            "generic_args": [
+              {
+                "type_name": "str",
+                "crate_name": "core",
+                "module_path": "primitive",
+                "generic_args": [],
+                "is_generic_param": false,
+                "src_location": ""
+              }
+            ],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "is_generic_param": false,
+        "src_location": ""
+      },
+      {
+        "type_name": "fn(T) -> Option<T>",
+        "crate_name": "core",
+        "module_path": "option::Option::Some",
+        "generic_args": [
+          {
+            "type_name": "T",
+            "crate_name": "",
+            "module_path": "",
+            "generic_args": [],
+            "is_generic_param": true,
+            "src_location": ""
+          },
+          {
+            "type_name": "Option<T>",
+            "crate_name": "core",
+            "module_path": "option",
+            "generic_args": [
+              {
+                "type_name": "T",
+                "crate_name": "",
+                "module_path": "",
+                "generic_args": [],
+                "is_generic_param": true,
+                "src_location": ""
+              }
+            ],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "is_generic_param": false,
+        "src_location": ""
+      },
+      {
+        "type_name": "[Argument; usize]",
+        "crate_name": "core",
+        "module_path": "array",
+        "generic_args": [
+          {
+            "type_name": "Argument",
+            "crate_name": "core",
+            "module_path": "fmt::rt",
+            "generic_args": [],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "is_generic_param": false,
+        "src_location": ""
+      },
+      {
+        "type_name": "fn(&'_ T) -> Argument",
+        "crate_name": "core",
+        "module_path": "fmt::rt::{{impl}}",
+        "generic_args": [
+          {
+            "type_name": "&'_ T",
+            "crate_name": "core",
+            "module_path": "primitive",
+            "generic_args": [
+              {
+                "type_name": "T",
+                "crate_name": "",
+                "module_path": "",
+                "generic_args": [],
+                "is_generic_param": true,
+                "src_location": ""
+              }
+            ],
+            "is_generic_param": false,
+            "src_location": ""
+          },
+          {
+            "type_name": "Argument",
+            "crate_name": "core",
+            "module_path": "fmt::rt",
+            "generic_args": [],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "is_generic_param": false,
+        "src_location": ""
+      },
+      {
+        "type_name": "Argument",
+        "crate_name": "core",
+        "module_path": "fmt::rt",
+        "generic_args": [],
+        "is_generic_param": false,
+        "src_location": ""
+      },
+      {
+        "type_name": "()",
+        "crate_name": "core",
+        "module_path": "primitive",
+        "generic_args": [],
+        "is_generic_param": false,
+        "src_location": ""
+      },
+      {
+        "type_name": "&'_ [Argument; usize]",
+        "crate_name": "core",
+        "module_path": "primitive",
+        "generic_args": [
+          {
+            "type_name": "[Argument; usize]",
+            "crate_name": "core",
+            "module_path": "array",
+            "generic_args": [
+              {
+                "type_name": "Argument",
+                "crate_name": "core",
+                "module_path": "fmt::rt",
+                "generic_args": [],
+                "is_generic_param": false,
+                "src_location": ""
+              }
+            ],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "is_generic_param": false,
+        "src_location": ""
+      },
+      {
+        "type_name": "Arguments",
+        "crate_name": "core",
+        "module_path": "fmt",
+        "generic_args": [],
+        "is_generic_param": false,
+        "src_location": ""
+      },
+      {
+        "type_name": "fn(T) -> T",
+        "crate_name": "core",
+        "module_path": "hint",
+        "generic_args": [
+          {
+            "type_name": "T",
+            "crate_name": "",
+            "module_path": "",
+            "generic_args": [],
+            "is_generic_param": true,
+            "src_location": ""
+          },
+          {
+            "type_name": "T",
+            "crate_name": "",
+            "module_path": "",
+            "generic_args": [],
+            "is_generic_param": true,
+            "src_location": ""
+          }
+        ],
+        "is_generic_param": false,
+        "src_location": ""
+      },
+      {
+        "type_name": "&'_ [&'_ str; usize]",
+        "crate_name": "core",
+        "module_path": "primitive",
+        "generic_args": [
+          {
+            "type_name": "[&'_ str; usize]",
+            "crate_name": "core",
+            "module_path": "array",
+            "generic_args": [
+              {
+                "type_name": "&'_ str",
+                "crate_name": "core",
+                "module_path": "primitive",
+                "generic_args": [
+                  {
+                    "type_name": "str",
+                    "crate_name": "core",
+                    "module_path": "primitive",
+                    "generic_args": [],
+                    "is_generic_param": false,
+                    "src_location": ""
+                  }
+                ],
+                "is_generic_param": false,
+                "src_location": ""
+              }
+            ],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "is_generic_param": false,
+        "src_location": ""
+      },
+      {
+        "type_name": "String",
+        "crate_name": "alloc",
+        "module_path": "string",
+        "generic_args": [],
+        "is_generic_param": false,
+        "src_location": ""
+      },
+      {
+        "type_name": "Option<&'_ str>",
+        "crate_name": "core",
+        "module_path": "option",
+        "generic_args": [
+          {
+            "type_name": "&'_ str",
+            "crate_name": "core",
+            "module_path": "primitive",
+            "generic_args": [
+              {
+                "type_name": "str",
+                "crate_name": "core",
+                "module_path": "primitive",
+                "generic_args": [],
+                "is_generic_param": false,
+                "src_location": ""
+              }
+            ],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "is_generic_param": false,
+        "src_location": ""
+      },
+      {
+        "type_name": "(Option<&'_ str>, Option<&'_ str>)",
+        "crate_name": "core",
+        "module_path": "primitive",
+        "generic_args": [
+          {
+            "type_name": "Option<&'_ str>",
+            "crate_name": "core",
+            "module_path": "option",
+            "generic_args": [
+              {
+                "type_name": "&'_ str",
+                "crate_name": "core",
+                "module_path": "primitive",
+                "generic_args": [
+                  {
+                    "type_name": "str",
+                    "crate_name": "core",
+                    "module_path": "primitive",
+                    "generic_args": [],
+                    "is_generic_param": false,
+                    "src_location": ""
+                  }
+                ],
+                "is_generic_param": false,
+                "src_location": ""
+              }
+            ],
+            "is_generic_param": false,
+            "src_location": ""
+          },
+          {
+            "type_name": "Option<&'_ str>",
+            "crate_name": "core",
+            "module_path": "option",
+            "generic_args": [
+              {
+                "type_name": "&'_ str",
+                "crate_name": "core",
+                "module_path": "primitive",
+                "generic_args": [
+                  {
+                    "type_name": "str",
+                    "crate_name": "core",
+                    "module_path": "primitive",
+                    "generic_args": [],
+                    "is_generic_param": false,
+                    "src_location": ""
+                  }
+                ],
+                "is_generic_param": false,
+                "src_location": ""
+              }
+            ],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "is_generic_param": false,
+        "src_location": ""
+      },
+      {
+        "type_name": "!",
+        "crate_name": "unknown",
+        "module_path": "unknown",
+        "generic_args": [],
+        "is_generic_param": false,
+        "src_location": ""
+      },
+      {
+        "type_name": "&'_ &'_ str",
+        "crate_name": "core",
+        "module_path": "primitive",
+        "generic_args": [
+          {
+            "type_name": "&'_ str",
+            "crate_name": "core",
+            "module_path": "primitive",
+            "generic_args": [
+              {
+                "type_name": "str",
+                "crate_name": "core",
+                "module_path": "primitive",
+                "generic_args": [],
+                "is_generic_param": false,
+                "src_location": ""
+              }
+            ],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "is_generic_param": false,
+        "src_location": ""
+      },
+      {
+        "type_name": "&'_ str",
+        "crate_name": "core",
+        "module_path": "primitive",
+        "generic_args": [
+          {
+            "type_name": "str",
+            "crate_name": "core",
+            "module_path": "primitive",
+            "generic_args": [],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "is_generic_param": false,
+        "src_location": ""
+      },
+      {
+        "type_name": "fn(Arguments) -> String",
+        "crate_name": "alloc",
+        "module_path": "fmt",
+        "generic_args": [
+          {
+            "type_name": "Arguments",
+            "crate_name": "core",
+            "module_path": "fmt",
+            "generic_args": [],
+            "is_generic_param": false,
+            "src_location": ""
+          },
+          {
+            "type_name": "String",
+            "crate_name": "alloc",
+            "module_path": "string",
+            "generic_args": [],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "is_generic_param": false,
+        "src_location": ""
+      }
+    ],
+    "literals_used": [
+      {
+        "value": "option_env!(\"RUSTUP_HOME\")",
+        "literal_type": "&'{erased} str",
+        "span": "src/lib.rs",
+        "line_number": 34,
+        "column_number": 15
+      },
+      {
+        "value": "option_env!(\"RUSTUP_TOOLCHAIN\")",
+        "literal_type": "&'{erased} str",
+        "span": "src/lib.rs",
+        "line_number": 35,
+        "column_number": 20
+      },
+      {
+        "value": "\"{}/toolchains/{}\"",
+        "literal_type": "&'{erased} str",
+        "span": "src/lib.rs",
+        "line_number": 37,
+        "column_number": 49
+      },
+      {
+        "value": "\"{}/toolchains/{}\"",
+        "literal_type": "&'{erased} str",
+        "span": "src/lib.rs",
+        "line_number": 37,
+        "column_number": 49
+      },
+      {
+        "value": "\"To build Callgraph without rustup, set the `RUST_SYSROOT` env var at build time\"",
+        "literal_type": "&'{erased} str",
+        "span": "src/lib.rs",
+        "line_number": 40,
+        "column_number": 16
+      }
+    ],
+    "functions_called": [
+      {
+        "name": "Some",
+        "fully_qualified_path": "std::prelude::v1::Some",
+        "is_method": false,
+        "receiver_type": null,
+        "input_types": [
+          {
+            "type_name": "T",
+            "crate_name": "",
+            "module_path": "",
+            "generic_args": [],
+            "is_generic_param": true,
+            "src_location": ""
+          }
+        ],
+        "output_types": [
+          {
+            "type_name": "Option<T>",
+            "crate_name": "core",
+            "module_path": "option",
+            "generic_args": [
+              {
+                "type_name": "T",
+                "crate_name": "",
+                "module_path": "",
+                "generic_args": [],
+                "is_generic_param": true,
+                "src_location": ""
+              }
+            ],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "src_location": "src/lib.rs",
+        "line_number": 34,
+        "column_number": 15,
+        "origin_crate": "core",
+        "origin_module": "option::Option::Some",
+        "call_type": "function"
+      },
+      {
+        "name": "Some",
+        "fully_qualified_path": "std::prelude::v1::Some",
+        "is_method": false,
+        "receiver_type": null,
+        "input_types": [
+          {
+            "type_name": "T",
+            "crate_name": "",
+            "module_path": "",
+            "generic_args": [],
+            "is_generic_param": true,
+            "src_location": ""
+          }
+        ],
+        "output_types": [
+          {
+            "type_name": "Option<T>",
+            "crate_name": "core",
+            "module_path": "option",
+            "generic_args": [
+              {
+                "type_name": "T",
+                "crate_name": "",
+                "module_path": "",
+                "generic_args": [],
+                "is_generic_param": true,
+                "src_location": ""
+              }
+            ],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "src_location": "src/lib.rs",
+        "line_number": 35,
+        "column_number": 20,
+        "origin_crate": "core",
+        "origin_module": "option::Option::Some",
+        "call_type": "function"
+      },
+      {
+        "name": "Some",
+        "fully_qualified_path": "std::prelude::v1::Some",
+        "is_method": false,
+        "receiver_type": null,
+        "input_types": [
+          {
+            "type_name": "T",
+            "crate_name": "",
+            "module_path": "",
+            "generic_args": [],
+            "is_generic_param": true,
+            "src_location": ""
+          }
+        ],
+        "output_types": [
+          {
+            "type_name": "Option<T>",
+            "crate_name": "core",
+            "module_path": "option",
+            "generic_args": [
+              {
+                "type_name": "T",
+                "crate_name": "",
+                "module_path": "",
+                "generic_args": [],
+                "is_generic_param": true,
+                "src_location": ""
+              }
+            ],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "src_location": "src/lib.rs",
+        "line_number": 36,
+        "column_number": 4,
+        "origin_crate": "core",
+        "origin_module": "option::Option::Some",
+        "call_type": "function"
+      },
+      {
+        "name": "must_use",
+        "fully_qualified_path": "std::hint::must_use",
+        "is_method": false,
+        "receiver_type": null,
+        "input_types": [
+          {
+            "type_name": "T",
+            "crate_name": "",
+            "module_path": "",
+            "generic_args": [],
+            "is_generic_param": true,
+            "src_location": ""
+          }
+        ],
+        "output_types": [
+          {
+            "type_name": "T",
+            "crate_name": "",
+            "module_path": "",
+            "generic_args": [],
+            "is_generic_param": true,
+            "src_location": ""
+          }
+        ],
+        "src_location": "/Users/eswar.tadiparth/.rustup/toolchains/nightly-2024-08-07-aarch64-apple-darwin/lib/rustlib/src/rust/library/alloc/src/macros.rs",
+        "line_number": 127,
+        "column_number": 8,
+        "origin_crate": "core",
+        "origin_module": "hint",
+        "call_type": "function"
+      },
+      {
+        "name": "format",
+        "fully_qualified_path": "std::fmt::format",
+        "is_method": false,
+        "receiver_type": null,
+        "input_types": [
+          {
+            "type_name": "Arguments",
+            "crate_name": "core",
+            "module_path": "fmt",
+            "generic_args": [],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "output_types": [
+          {
+            "type_name": "String",
+            "crate_name": "alloc",
+            "module_path": "string",
+            "generic_args": [],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "src_location": "/Users/eswar.tadiparth/.rustup/toolchains/nightly-2024-08-07-aarch64-apple-darwin/lib/rustlib/src/rust/library/alloc/src/macros.rs",
+        "line_number": 128,
+        "column_number": 22,
+        "origin_crate": "alloc",
+        "origin_module": "fmt",
+        "call_type": "function"
+      },
+      {
+        "name": "new_v1",
+        "fully_qualified_path": "std::fmt::Arguments::<'a>::new_v1",
+        "is_method": false,
+        "receiver_type": null,
+        "input_types": [
+          {
+            "type_name": "&'_ [&'static str; ?]",
+            "crate_name": "core",
+            "module_path": "primitive",
+            "generic_args": [
+              {
+                "type_name": "[&'static str; ?]",
+                "crate_name": "core",
+                "module_path": "array",
+                "generic_args": [
+                  {
+                    "type_name": "&'static str",
+                    "crate_name": "core",
+                    "module_path": "primitive",
+                    "generic_args": [
+                      {
+                        "type_name": "str",
+                        "crate_name": "core",
+                        "module_path": "primitive",
+                        "generic_args": [],
+                        "is_generic_param": false,
+                        "src_location": ""
+                      }
+                    ],
+                    "is_generic_param": false,
+                    "src_location": ""
+                  }
+                ],
+                "is_generic_param": false,
+                "src_location": ""
+              }
+            ],
+            "is_generic_param": false,
+            "src_location": ""
+          },
+          {
+            "type_name": "&'_ [Argument; ?]",
+            "crate_name": "core",
+            "module_path": "primitive",
+            "generic_args": [
+              {
+                "type_name": "[Argument; ?]",
+                "crate_name": "core",
+                "module_path": "array",
+                "generic_args": [
+                  {
+                    "type_name": "Argument",
+                    "crate_name": "core",
+                    "module_path": "fmt::rt",
+                    "generic_args": [],
+                    "is_generic_param": false,
+                    "src_location": ""
+                  }
+                ],
+                "is_generic_param": false,
+                "src_location": ""
+              }
+            ],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "output_types": [
+          {
+            "type_name": "Arguments",
+            "crate_name": "core",
+            "module_path": "fmt",
+            "generic_args": [],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "src_location": "/Users/eswar.tadiparth/.rustup/toolchains/nightly-2024-08-07-aarch64-apple-darwin/lib/rustlib/src/rust/library/alloc/src/macros.rs",
+        "line_number": 128,
+        "column_number": 42,
+        "origin_crate": "core",
+        "origin_module": "fmt::{{impl}}",
+        "call_type": "function"
+      },
+      {
+        "name": "new_display",
+        "fully_qualified_path": "core::fmt::rt::Argument::<'a>::new_display",
+        "is_method": false,
+        "receiver_type": null,
+        "input_types": [
+          {
+            "type_name": "&'_ T",
+            "crate_name": "core",
+            "module_path": "primitive",
+            "generic_args": [
+              {
+                "type_name": "T",
+                "crate_name": "",
+                "module_path": "",
+                "generic_args": [],
+                "is_generic_param": true,
+                "src_location": ""
+              }
+            ],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "output_types": [
+          {
+            "type_name": "Argument",
+            "crate_name": "core",
+            "module_path": "fmt::rt",
+            "generic_args": [],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "src_location": "src/lib.rs",
+        "line_number": 37,
+        "column_number": 50,
+        "origin_crate": "core",
+        "origin_module": "fmt::rt::{{impl}}",
+        "call_type": "function"
+      },
+      {
+        "name": "new_display",
+        "fully_qualified_path": "core::fmt::rt::Argument::<'a>::new_display",
+        "is_method": false,
+        "receiver_type": null,
+        "input_types": [
+          {
+            "type_name": "&'_ T",
+            "crate_name": "core",
+            "module_path": "primitive",
+            "generic_args": [
+              {
+                "type_name": "T",
+                "crate_name": "",
+                "module_path": "",
+                "generic_args": [],
+                "is_generic_param": true,
+                "src_location": ""
+              }
+            ],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "output_types": [
+          {
+            "type_name": "Argument",
+            "crate_name": "core",
+            "module_path": "fmt::rt",
+            "generic_args": [],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "src_location": "src/lib.rs",
+        "line_number": 37,
+        "column_number": 64,
+        "origin_crate": "core",
+        "origin_module": "fmt::rt::{{impl}}",
+        "call_type": "function"
+      }
+    ],
+    "methods_called": [
+      {
+        "name": "is_some",
+        "fully_qualified_path": "std::option::Option::<T>::is_some",
+        "is_method": true,
+        "receiver_type": {
+          "type_name": "Option<&'_ str>",
+          "crate_name": "core",
+          "module_path": "option",
+          "generic_args": [
+            {
+              "type_name": "&'_ str",
+              "crate_name": "core",
+              "module_path": "primitive",
+              "generic_args": [
+                {
+                  "type_name": "str",
+                  "crate_name": "core",
+                  "module_path": "primitive",
+                  "generic_args": [],
+                  "is_generic_param": false,
+                  "src_location": ""
+                }
+              ],
+              "is_generic_param": false,
+              "src_location": ""
+            }
+          ],
+          "is_generic_param": false,
+          "src_location": ""
+        },
+        "input_types": [],
+        "output_types": [
+          {
+            "type_name": "bool",
+            "crate_name": "core",
+            "module_path": "primitive",
+            "generic_args": [],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "src_location": "src/lib.rs",
+        "line_number": 24,
+        "column_number": 34,
+        "origin_crate": "core",
+        "origin_module": "option::{{impl}}",
+        "call_type": "method"
+      },
+      {
+        "name": "or",
+        "fully_qualified_path": "std::option::Option::<T>::or",
+        "is_method": true,
+        "receiver_type": {
+          "type_name": "Option<&'_ str>",
+          "crate_name": "core",
+          "module_path": "option",
+          "generic_args": [
+            {
+              "type_name": "&'_ str",
+              "crate_name": "core",
+              "module_path": "primitive",
+              "generic_args": [
+                {
+                  "type_name": "str",
+                  "crate_name": "core",
+                  "module_path": "primitive",
+                  "generic_args": [],
+                  "is_generic_param": false,
+                  "src_location": ""
+                }
+              ],
+              "is_generic_param": false,
+              "src_location": ""
+            }
+          ],
+          "is_generic_param": false,
+          "src_location": ""
+        },
+        "input_types": [
+          {
+            "type_name": "Option<T>",
+            "crate_name": "core",
+            "module_path": "option",
+            "generic_args": [
+              {
+                "type_name": "T",
+                "crate_name": "",
+                "module_path": "",
+                "generic_args": [],
+                "is_generic_param": true,
+                "src_location": ""
+              }
+            ],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "output_types": [
+          {
+            "type_name": "Option<T>",
+            "crate_name": "core",
+            "module_path": "option",
+            "generic_args": [
+              {
+                "type_name": "T",
+                "crate_name": "",
+                "module_path": "",
+                "generic_args": [],
+                "is_generic_param": true,
+                "src_location": ""
+              }
+            ],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "src_location": "src/lib.rs",
+        "line_number": 34,
+        "column_number": 42,
+        "origin_crate": "core",
+        "origin_module": "option::{{impl}}",
+        "call_type": "method"
+      },
+      {
+        "name": "or",
+        "fully_qualified_path": "std::option::Option::<T>::or",
+        "is_method": true,
+        "receiver_type": {
+          "type_name": "Option<&'_ str>",
+          "crate_name": "core",
+          "module_path": "option",
+          "generic_args": [
+            {
+              "type_name": "&'_ str",
+              "crate_name": "core",
+              "module_path": "primitive",
+              "generic_args": [
+                {
+                  "type_name": "str",
+                  "crate_name": "core",
+                  "module_path": "primitive",
+                  "generic_args": [],
+                  "is_generic_param": false,
+                  "src_location": ""
+                }
+              ],
+              "is_generic_param": false,
+              "src_location": ""
+            }
+          ],
+          "is_generic_param": false,
+          "src_location": ""
+        },
+        "input_types": [
+          {
+            "type_name": "Option<T>",
+            "crate_name": "core",
+            "module_path": "option",
+            "generic_args": [
+              {
+                "type_name": "T",
+                "crate_name": "",
+                "module_path": "",
+                "generic_args": [],
+                "is_generic_param": true,
+                "src_location": ""
+              }
+            ],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "output_types": [
+          {
+            "type_name": "Option<T>",
+            "crate_name": "core",
+            "module_path": "option",
+            "generic_args": [
+              {
+                "type_name": "T",
+                "crate_name": "",
+                "module_path": "",
+                "generic_args": [],
+                "is_generic_param": true,
+                "src_location": ""
+              }
+            ],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "src_location": "src/lib.rs",
+        "line_number": 35,
+        "column_number": 52,
+        "origin_crate": "core",
+        "origin_module": "option::{{impl}}",
+        "call_type": "method"
+      },
+      {
+        "name": "to_owned",
+        "fully_qualified_path": "std::borrow::ToOwned::to_owned",
+        "is_method": true,
+        "receiver_type": {
+          "type_name": "&'_ str",
+          "crate_name": "core",
+          "module_path": "primitive",
+          "generic_args": [
+            {
+              "type_name": "str",
+              "crate_name": "core",
+              "module_path": "primitive",
+              "generic_args": [],
+              "is_generic_param": false,
+              "src_location": ""
+            }
+          ],
+          "is_generic_param": false,
+          "src_location": ""
+        },
+        "input_types": [],
+        "output_types": [
+          {
+            "type_name": "Alias(Projection, AliasTy { args: [Self/#0], def_id: DefId(5:779 ~ alloc[1836]::borrow::ToOwned::Owned), .. })",
+            "crate_name": "unknown",
+            "module_path": "unknown",
+            "generic_args": [],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "src_location": "src/lib.rs",
+        "line_number": 42,
+        "column_number": 13,
+        "origin_crate": "alloc",
+        "origin_module": "borrow::ToOwned",
+        "call_type": "method"
+      },
+      {
+        "name": "expect",
+        "fully_qualified_path": "std::option::Option::<T>::expect",
+        "is_method": true,
+        "receiver_type": {
+          "type_name": "Option<&'_ str>",
+          "crate_name": "core",
+          "module_path": "option",
+          "generic_args": [
+            {
+              "type_name": "&'_ str",
+              "crate_name": "core",
+              "module_path": "primitive",
+              "generic_args": [
+                {
+                  "type_name": "str",
+                  "crate_name": "core",
+                  "module_path": "primitive",
+                  "generic_args": [],
+                  "is_generic_param": false,
+                  "src_location": ""
+                }
+              ],
+              "is_generic_param": false,
+              "src_location": ""
+            }
+          ],
+          "is_generic_param": false,
+          "src_location": ""
+        },
+        "input_types": [
+          {
+            "type_name": "&'_ str",
+            "crate_name": "core",
+            "module_path": "primitive",
+            "generic_args": [
+              {
+                "type_name": "str",
+                "crate_name": "core",
+                "module_path": "primitive",
+                "generic_args": [],
+                "is_generic_param": false,
+                "src_location": ""
+              }
+            ],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "output_types": [
+          {
+            "type_name": "T",
+            "crate_name": "",
+            "module_path": "",
+            "generic_args": [],
+            "is_generic_param": true,
+            "src_location": ""
+          }
+        ],
+        "src_location": "src/lib.rs",
+        "line_number": 39,
+        "column_number": 13,
+        "origin_crate": "core",
+        "origin_module": "option::{{impl}}",
+        "call_type": "method"
+      }
+    ],
+    "where_functions": {},
+    "src_location": "src/lib.rs",
+    "src_code": "pub fn compile_time_sysroot() -> Option<String> {\n    // option_env! is replaced to a constant at compile time\n    if option_env!(\"RUSTC_STAGE\").is_some() {\n        // This is being built as part of rustc, and gets shipped with rustup.\n        // We can rely on the sysroot computation in librustc.\n        return None;\n    }\n\n    // For builds outside rustc, we need to ensure that we got a sysroot\n    // that gets used as a default. The sysroot computation in librustc would\n    // end up somewhere in the build dir.\n    // Taken from PR <https://github.com/Manishearth/rust-clippy/pull/911>.\n    let home = option_env!(\"RUSTUP_HOME\").or(option_env!(\"MULTIRUST_HOME\"));\n    let toolchain = option_env!(\"RUSTUP_TOOLCHAIN\").or(option_env!(\"MULTIRUST_TOOLCHAIN\"));\n    Some(match (home, toolchain) {\n        (Some(home), Some(toolchain)) => format!(\"{}/toolchains/{}\", home, toolchain),\n        _ => option_env!(\"RUST_SYSROOT\")\n            .expect(\n                \"To build Callgraph without rustup, set the `RUST_SYSROOT` env var at build time\",\n            )\n            .to_owned(),\n    })\n}",
+    "line_number_start": 22,
+    "line_number_end": 44,
+    "crate_name": "fdep",
+    "module_path": "",
+    "visibility": "pub",
+    "doc_comments": "",
+    "attributes": []
+  },
+  {
+    "name": "analyze",
+    "fully_qualified_path": "fdep::analyze",
+    "is_method": false,
+    "self_type": null,
+    "input_types": [
+      {
+        "type_name": "&TyCtxt<''tcx>",
+        "crate_name": "rustc_middle",
+        "module_path": "ty::context",
+        "generic_args": [
+          {
+            "type_name": "''tcx",
+            "crate_name": "",
+            "module_path": "",
+            "generic_args": [],
+            "is_generic_param": true,
+            "src_location": "src/lib.rs"
+          }
+        ],
+        "is_generic_param": false,
+        "src_location": "src/lib.rs"
+      }
+    ],
+    "output_types": [
+      {
+        "type_name": "()",
+        "crate_name": "core",
+        "module_path": "primitive",
+        "generic_args": [],
+        "is_generic_param": false,
+        "src_location": ""
+      }
+    ],
+    "types_used": [
+      {
+        "type_name": "&'_ [&'_ str; usize]",
+        "crate_name": "core",
+        "module_path": "primitive",
+        "generic_args": [
+          {
+            "type_name": "[&'_ str; usize]",
+            "crate_name": "core",
+            "module_path": "array",
+            "generic_args": [
+              {
+                "type_name": "&'_ str",
+                "crate_name": "core",
+                "module_path": "primitive",
+                "generic_args": [
+                  {
+                    "type_name": "str",
+                    "crate_name": "core",
+                    "module_path": "primitive",
+                    "generic_args": [],
+                    "is_generic_param": false,
+                    "src_location": ""
+                  }
+                ],
+                "is_generic_param": false,
+                "src_location": ""
+              }
+            ],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "is_generic_param": false,
+        "src_location": ""
+      },
+      {
+        "type_name": "&'_ PathBuf",
+        "crate_name": "core",
+        "module_path": "primitive",
+        "generic_args": [
+          {
+            "type_name": "PathBuf",
+            "crate_name": "std",
+            "module_path": "path",
+            "generic_args": [],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "is_generic_param": false,
+        "src_location": ""
+      },
+      {
+        "type_name": "fn(&'_ TyCtxt, PathBuf) -> CallgraphVisitor",
+        "crate_name": "fdep",
+        "module_path": "visitor::{{impl}}",
+        "generic_args": [
+          {
+            "type_name": "&'_ TyCtxt",
+            "crate_name": "core",
+            "module_path": "primitive",
+            "generic_args": [
+              {
+                "type_name": "TyCtxt",
+                "crate_name": "rustc_middle",
+                "module_path": "ty::context",
+                "generic_args": [],
+                "is_generic_param": false,
+                "src_location": ""
+              }
+            ],
+            "is_generic_param": false,
+            "src_location": ""
+          },
+          {
+            "type_name": "PathBuf",
+            "crate_name": "std",
+            "module_path": "path",
+            "generic_args": [],
+            "is_generic_param": false,
+            "src_location": ""
+          },
+          {
+            "type_name": "CallgraphVisitor",
+            "crate_name": "fdep",
+            "module_path": "visitor",
+            "generic_args": [],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "is_generic_param": false,
+        "src_location": ""
+      },
+      {
+        "type_name": "fn() -> Option<PathBuf>",
+        "crate_name": "fdep",
+        "module_path": "",
+        "generic_args": [
+          {
+            "type_name": "Option<PathBuf>",
+            "crate_name": "core",
+            "module_path": "option",
+            "generic_args": [
+              {
+                "type_name": "PathBuf",
+                "crate_name": "std",
+                "module_path": "path",
+                "generic_args": [],
+                "is_generic_param": false,
+                "src_location": ""
+              }
+            ],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "is_generic_param": false,
+        "src_location": ""
+      },
+      {
+        "type_name": "CallgraphVisitor",
+        "crate_name": "fdep",
+        "module_path": "visitor",
+        "generic_args": [],
+        "is_generic_param": false,
+        "src_location": ""
+      },
+      {
+        "type_name": "&'_ &'_ TyCtxt",
+        "crate_name": "core",
+        "module_path": "primitive",
+        "generic_args": [
+          {
+            "type_name": "&'_ TyCtxt",
+            "crate_name": "core",
+            "module_path": "primitive",
+            "generic_args": [
+              {
+                "type_name": "TyCtxt",
+                "crate_name": "rustc_middle",
+                "module_path": "ty::context",
+                "generic_args": [],
+                "is_generic_param": false,
+                "src_location": ""
+              }
+            ],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "is_generic_param": false,
+        "src_location": ""
+      },
+      {
+        "type_name": "fn(Arguments) -> ()",
+        "crate_name": "std",
+        "module_path": "io::stdio",
+        "generic_args": [
+          {
+            "type_name": "Arguments",
+            "crate_name": "core",
+            "module_path": "fmt",
+            "generic_args": [],
+            "is_generic_param": false,
+            "src_location": ""
+          },
+          {
+            "type_name": "()",
+            "crate_name": "core",
+            "module_path": "primitive",
+            "generic_args": [],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "is_generic_param": false,
+        "src_location": ""
+      },
+      {
+        "type_name": "fn(&'_ [&'static str; ?]) -> Arguments",
+        "crate_name": "core",
+        "module_path": "fmt::{{impl}}",
+        "generic_args": [
+          {
+            "type_name": "&'_ [&'static str; ?]",
+            "crate_name": "core",
+            "module_path": "primitive",
+            "generic_args": [
+              {
+                "type_name": "[&'static str; ?]",
+                "crate_name": "core",
+                "module_path": "array",
+                "generic_args": [
+                  {
+                    "type_name": "&'static str",
+                    "crate_name": "core",
+                    "module_path": "primitive",
+                    "generic_args": [
+                      {
+                        "type_name": "str",
+                        "crate_name": "core",
+                        "module_path": "primitive",
+                        "generic_args": [],
+                        "is_generic_param": false,
+                        "src_location": ""
+                      }
+                    ],
+                    "is_generic_param": false,
+                    "src_location": ""
+                  }
+                ],
+                "is_generic_param": false,
+                "src_location": ""
+              }
+            ],
+            "is_generic_param": false,
+            "src_location": ""
+          },
+          {
+            "type_name": "Arguments",
+            "crate_name": "core",
+            "module_path": "fmt",
+            "generic_args": [],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "is_generic_param": false,
+        "src_location": ""
+      },
+      {
+        "type_name": "Arguments",
+        "crate_name": "core",
+        "module_path": "fmt",
+        "generic_args": [],
+        "is_generic_param": false,
+        "src_location": ""
+      },
+      {
+        "type_name": "[&'_ str; usize]",
+        "crate_name": "core",
+        "module_path": "array",
+        "generic_args": [
+          {
+            "type_name": "&'_ str",
+            "crate_name": "core",
+            "module_path": "primitive",
+            "generic_args": [
+              {
+                "type_name": "str",
+                "crate_name": "core",
+                "module_path": "primitive",
+                "generic_args": [],
+                "is_generic_param": false,
+                "src_location": ""
+              }
+            ],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "is_generic_param": false,
+        "src_location": ""
+      },
+      {
+        "type_name": "()",
+        "crate_name": "core",
+        "module_path": "primitive",
+        "generic_args": [],
+        "is_generic_param": false,
+        "src_location": ""
+      },
+      {
+        "type_name": "Option<PathBuf>",
+        "crate_name": "core",
+        "module_path": "option",
+        "generic_args": [
+          {
+            "type_name": "PathBuf",
+            "crate_name": "std",
+            "module_path": "path",
+            "generic_args": [],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "is_generic_param": false,
+        "src_location": ""
+      },
+      {
+        "type_name": "&'_ TyCtxt",
+        "crate_name": "core",
+        "module_path": "primitive",
+        "generic_args": [
+          {
+            "type_name": "TyCtxt",
+            "crate_name": "rustc_middle",
+            "module_path": "ty::context",
+            "generic_args": [],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "is_generic_param": false,
+        "src_location": ""
+      },
+      {
+        "type_name": "Closure<(()) -> PathBuf>",
+        "crate_name": "fdep",
+        "module_path": "analyze::{closure#0}",
+        "generic_args": [
+          {
+            "type_name": "()",
+            "crate_name": "core",
+            "module_path": "primitive",
+            "generic_args": [],
+            "is_generic_param": false,
+            "src_location": ""
+          },
+          {
+            "type_name": "PathBuf",
+            "crate_name": "std",
+            "module_path": "path",
+            "generic_args": [],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "is_generic_param": false,
+        "src_location": ""
+      },
+      {
+        "type_name": "PathBuf",
+        "crate_name": "std",
+        "module_path": "path",
+        "generic_args": [],
+        "is_generic_param": false,
+        "src_location": ""
+      },
+      {
+        "type_name": "Result<(), Error>",
+        "crate_name": "core",
+        "module_path": "result",
+        "generic_args": [
+          {
+            "type_name": "()",
+            "crate_name": "core",
+            "module_path": "primitive",
+            "generic_args": [],
+            "is_generic_param": false,
+            "src_location": ""
+          },
+          {
+            "type_name": "Error",
+            "crate_name": "std",
+            "module_path": "io::error",
+            "generic_args": [],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "is_generic_param": false,
+        "src_location": ""
+      },
+      {
+        "type_name": "&'_ mut CallgraphVisitor",
+        "crate_name": "core",
+        "module_path": "primitive",
+        "generic_args": [
+          {
+            "type_name": "CallgraphVisitor",
+            "crate_name": "fdep",
+            "module_path": "visitor",
+            "generic_args": [],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "is_generic_param": false,
+        "src_location": ""
+      },
+      {
+        "type_name": "fn(P) -> Result<(), Error>",
+        "crate_name": "std",
+        "module_path": "fs",
+        "generic_args": [
+          {
+            "type_name": "P",
+            "crate_name": "",
+            "module_path": "",
+            "generic_args": [],
+            "is_generic_param": true,
+            "src_location": ""
+          },
+          {
+            "type_name": "Result<(), Error>",
+            "crate_name": "core",
+            "module_path": "result",
+            "generic_args": [
+              {
+                "type_name": "()",
+                "crate_name": "core",
+                "module_path": "primitive",
+                "generic_args": [],
+                "is_generic_param": false,
+                "src_location": ""
+              },
+              {
+                "type_name": "Error",
+                "crate_name": "std",
+                "module_path": "io::error",
+                "generic_args": [],
+                "is_generic_param": false,
+                "src_location": ""
+              }
+            ],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "is_generic_param": false,
+        "src_location": ""
+      },
+      {
+        "type_name": "&'_ str",
+        "crate_name": "core",
+        "module_path": "primitive",
+        "generic_args": [
+          {
+            "type_name": "str",
+            "crate_name": "core",
+            "module_path": "primitive",
+            "generic_args": [],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "is_generic_param": false,
+        "src_location": ""
+      },
+      {
+        "type_name": "Map",
+        "crate_name": "rustc_middle",
+        "module_path": "hir::map",
+        "generic_args": [],
+        "is_generic_param": false,
+        "src_location": ""
+      }
+    ],
+    "literals_used": [
+      {
+        "value": "\"Failed to create output directory\"",
+        "literal_type": "&'{erased} str",
+        "span": "src/lib.rs",
+        "line_number": 51,
+        "column_number": 43
+      },
+      {
+        "value": "\"Callgraph analysis completed successfully!\"",
+        "literal_type": "&'{erased} str",
+        "span": "src/lib.rs",
+        "line_number": 63,
+        "column_number": 13
+      }
+    ],
+    "functions_called": [
+      {
+        "name": "get_output_dir",
+        "fully_qualified_path": "get_output_dir",
+        "is_method": false,
+        "receiver_type": null,
+        "input_types": [],
+        "output_types": [
+          {
+            "type_name": "Option<PathBuf>",
+            "crate_name": "core",
+            "module_path": "option",
+            "generic_args": [
+              {
+                "type_name": "PathBuf",
+                "crate_name": "std",
+                "module_path": "path",
+                "generic_args": [],
+                "is_generic_param": false,
+                "src_location": ""
+              }
+            ],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "src_location": "src/lib.rs",
+        "line_number": 48,
+        "column_number": 21,
+        "origin_crate": "fdep",
+        "origin_module": "",
+        "call_type": "function"
+      },
+      {
+        "name": "create_dir_all",
+        "fully_qualified_path": "std::fs::create_dir_all",
+        "is_method": false,
+        "receiver_type": null,
+        "input_types": [
+          {
+            "type_name": "P",
+            "crate_name": "",
+            "module_path": "",
+            "generic_args": [],
+            "is_generic_param": true,
+            "src_location": ""
+          }
+        ],
+        "output_types": [
+          {
+            "type_name": "Result<(), Error>",
+            "crate_name": "core",
+            "module_path": "result",
+            "generic_args": [
+              {
+                "type_name": "()",
+                "crate_name": "core",
+                "module_path": "primitive",
+                "generic_args": [],
+                "is_generic_param": false,
+                "src_location": ""
+              },
+              {
+                "type_name": "Error",
+                "crate_name": "std",
+                "module_path": "io::error",
+                "generic_args": [],
+                "is_generic_param": false,
+                "src_location": ""
+              }
+            ],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "src_location": "src/lib.rs",
+        "line_number": 51,
+        "column_number": 4,
+        "origin_crate": "std",
+        "origin_module": "fs",
+        "call_type": "function"
+      },
+      {
+        "name": "with_output_dir",
+        "fully_qualified_path": "visitor::CallgraphVisitor::<'tcx>::with_output_dir",
+        "is_method": false,
+        "receiver_type": null,
+        "input_types": [
+          {
+            "type_name": "&'_ TyCtxt",
+            "crate_name": "core",
+            "module_path": "primitive",
+            "generic_args": [
+              {
+                "type_name": "TyCtxt",
+                "crate_name": "rustc_middle",
+                "module_path": "ty::context",
+                "generic_args": [],
+                "is_generic_param": false,
+                "src_location": ""
+              }
+            ],
+            "is_generic_param": false,
+            "src_location": ""
+          },
+          {
+            "type_name": "PathBuf",
+            "crate_name": "std",
+            "module_path": "path",
+            "generic_args": [],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "output_types": [
+          {
+            "type_name": "CallgraphVisitor",
+            "crate_name": "fdep",
+            "module_path": "visitor",
+            "generic_args": [],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "src_location": "src/lib.rs",
+        "line_number": 54,
+        "column_number": 22,
+        "origin_crate": "fdep",
+        "origin_module": "visitor::{{impl}}",
+        "call_type": "function"
+      },
+      {
+        "name": "_print",
+        "fully_qualified_path": "std::io::_print",
+        "is_method": false,
+        "receiver_type": null,
+        "input_types": [
+          {
+            "type_name": "Arguments",
+            "crate_name": "core",
+            "module_path": "fmt",
+            "generic_args": [],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "output_types": [
+          {
+            "type_name": "()",
+            "crate_name": "core",
+            "module_path": "primitive",
+            "generic_args": [],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "src_location": "/Users/eswar.tadiparth/.rustup/toolchains/nightly-2024-08-07-aarch64-apple-darwin/lib/rustlib/src/rust/library/std/src/macros.rs",
+        "line_number": 143,
+        "column_number": 8,
+        "origin_crate": "std",
+        "origin_module": "io::stdio",
+        "call_type": "function"
+      },
+      {
+        "name": "new_const",
+        "fully_qualified_path": "std::fmt::Arguments::<'a>::new_const",
+        "is_method": false,
+        "receiver_type": null,
+        "input_types": [
+          {
+            "type_name": "&'_ [&'static str; ?]",
+            "crate_name": "core",
+            "module_path": "primitive",
+            "generic_args": [
+              {
+                "type_name": "[&'static str; ?]",
+                "crate_name": "core",
+                "module_path": "array",
+                "generic_args": [
+                  {
+                    "type_name": "&'static str",
+                    "crate_name": "core",
+                    "module_path": "primitive",
+                    "generic_args": [
+                      {
+                        "type_name": "str",
+                        "crate_name": "core",
+                        "module_path": "primitive",
+                        "generic_args": [],
+                        "is_generic_param": false,
+                        "src_location": ""
+                      }
+                    ],
+                    "is_generic_param": false,
+                    "src_location": ""
+                  }
+                ],
+                "is_generic_param": false,
+                "src_location": ""
+              }
+            ],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "output_types": [
+          {
+            "type_name": "Arguments",
+            "crate_name": "core",
+            "module_path": "fmt",
+            "generic_args": [],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "src_location": "/Users/eswar.tadiparth/.rustup/toolchains/nightly-2024-08-07-aarch64-apple-darwin/lib/rustlib/src/rust/library/std/src/macros.rs",
+        "line_number": 143,
+        "column_number": 27,
+        "origin_crate": "core",
+        "origin_module": "fmt::{{impl}}",
+        "call_type": "function"
+      }
+    ],
+    "methods_called": [
+      {
+        "name": "unwrap_or_else",
+        "fully_qualified_path": "std::option::Option::<T>::unwrap_or_else",
+        "is_method": true,
+        "receiver_type": {
+          "type_name": "Option<PathBuf>",
+          "crate_name": "core",
+          "module_path": "option",
+          "generic_args": [
+            {
+              "type_name": "PathBuf",
+              "crate_name": "std",
+              "module_path": "path",
+              "generic_args": [],
+              "is_generic_param": false,
+              "src_location": ""
+            }
+          ],
+          "is_generic_param": false,
+          "src_location": ""
+        },
+        "input_types": [
+          {
+            "type_name": "F",
+            "crate_name": "",
+            "module_path": "",
+            "generic_args": [],
+            "is_generic_param": true,
+            "src_location": ""
+          }
+        ],
+        "output_types": [
+          {
+            "type_name": "T",
+            "crate_name": "",
+            "module_path": "",
+            "generic_args": [],
+            "is_generic_param": true,
+            "src_location": ""
+          }
+        ],
+        "src_location": "src/lib.rs",
+        "line_number": 48,
+        "column_number": 38,
+        "origin_crate": "core",
+        "origin_module": "option::{{impl}}",
+        "call_type": "method"
+      },
+      {
+        "name": "expect",
+        "fully_qualified_path": "std::result::Result::<T, E>::expect",
+        "is_method": true,
+        "receiver_type": {
+          "type_name": "Result<(), Error>",
+          "crate_name": "core",
+          "module_path": "result",
+          "generic_args": [
+            {
+              "type_name": "()",
+              "crate_name": "core",
+              "module_path": "primitive",
+              "generic_args": [],
+              "is_generic_param": false,
+              "src_location": ""
+            },
+            {
+              "type_name": "Error",
+              "crate_name": "std",
+              "module_path": "io::error",
+              "generic_args": [],
+              "is_generic_param": false,
+              "src_location": ""
+            }
+          ],
+          "is_generic_param": false,
+          "src_location": ""
+        },
+        "input_types": [
+          {
+            "type_name": "&'_ str",
+            "crate_name": "core",
+            "module_path": "primitive",
+            "generic_args": [
+              {
+                "type_name": "str",
+                "crate_name": "core",
+                "module_path": "primitive",
+                "generic_args": [],
+                "is_generic_param": false,
+                "src_location": ""
+              }
+            ],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "output_types": [
+          {
+            "type_name": "T",
+            "crate_name": "",
+            "module_path": "",
+            "generic_args": [],
+            "is_generic_param": true,
+            "src_location": ""
+          }
+        ],
+        "src_location": "src/lib.rs",
+        "line_number": 51,
+        "column_number": 36,
+        "origin_crate": "core",
+        "origin_module": "result::{{impl}}",
+        "call_type": "method"
+      },
+      {
+        "name": "visit_all_item_likes_in_crate",
+        "fully_qualified_path": "rustc_middle::hir::map::Map::<'hir>::visit_all_item_likes_in_crate",
+        "is_method": true,
+        "receiver_type": {
+          "type_name": "Map",
+          "crate_name": "rustc_middle",
+          "module_path": "hir::map",
+          "generic_args": [],
+          "is_generic_param": false,
+          "src_location": ""
+        },
+        "input_types": [
+          {
+            "type_name": "&'_ mut V",
+            "crate_name": "core",
+            "module_path": "primitive",
+            "generic_args": [
+              {
+                "type_name": "V",
+                "crate_name": "",
+                "module_path": "",
+                "generic_args": [],
+                "is_generic_param": true,
+                "src_location": ""
+              }
+            ],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "output_types": [
+          {
+            "type_name": "Alias(Projection, AliasTy { args: [V/#1, 'hir/#0], def_id: DefId(105:763 ~ rustc_hir[b613]::intravisit::Visitor::Result), .. })",
+            "crate_name": "unknown",
+            "module_path": "unknown",
+            "generic_args": [],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "src_location": "src/lib.rs",
+        "line_number": 57,
+        "column_number": 14,
+        "origin_crate": "rustc_middle",
+        "origin_module": "hir::map::{{impl}}",
+        "call_type": "method"
+      },
+      {
+        "name": "hir",
+        "fully_qualified_path": "rustc_middle::hir::<impl rustc_middle::ty::TyCtxt<'tcx>>::hir",
+        "is_method": true,
+        "receiver_type": {
+          "type_name": "&'_ TyCtxt",
+          "crate_name": "core",
+          "module_path": "primitive",
+          "generic_args": [
+            {
+              "type_name": "TyCtxt",
+              "crate_name": "rustc_middle",
+              "module_path": "ty::context",
+              "generic_args": [],
+              "is_generic_param": false,
+              "src_location": ""
+            }
+          ],
+          "is_generic_param": false,
+          "src_location": ""
+        },
+        "input_types": [],
+        "output_types": [
+          {
+            "type_name": "Map",
+            "crate_name": "rustc_middle",
+            "module_path": "hir::map",
+            "generic_args": [],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "src_location": "src/lib.rs",
+        "line_number": 57,
+        "column_number": 8,
+        "origin_crate": "rustc_middle",
+        "origin_module": "hir::{{impl}}",
+        "call_type": "method"
+      },
+      {
+        "name": "dump",
+        "fully_qualified_path": "visitor::CallgraphVisitor::<'tcx>::dump",
+        "is_method": true,
+        "receiver_type": {
+          "type_name": "CallgraphVisitor",
+          "crate_name": "fdep",
+          "module_path": "visitor",
+          "generic_args": [],
+          "is_generic_param": false,
+          "src_location": ""
+        },
+        "input_types": [],
+        "output_types": [
+          {
+            "type_name": "()",
+            "crate_name": "core",
+            "module_path": "primitive",
+            "generic_args": [],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "src_location": "src/lib.rs",
+        "line_number": 60,
+        "column_number": 12,
+        "origin_crate": "fdep",
+        "origin_module": "visitor::{{impl}}",
+        "call_type": "method"
+      }
+    ],
+    "where_functions": {
+      "closure_1": {
+        "name": "closure_1",
+        "fully_qualified_path": "closure_1",
+        "is_method": false,
+        "self_type": null,
+        "input_types": [
+          {
+            "type_name": "()",
+            "crate_name": "core",
+            "module_path": "primitive",
+            "generic_args": [],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "output_types": [
+          {
+            "type_name": "PathBuf",
+            "crate_name": "std",
+            "module_path": "path",
+            "generic_args": [],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "types_used": [
+          {
+            "type_name": "fn(T) -> Self",
+            "crate_name": "core",
+            "module_path": "convert::From",
+            "generic_args": [
+              {
+                "type_name": "T",
+                "crate_name": "",
+                "module_path": "",
+                "generic_args": [],
+                "is_generic_param": true,
+                "src_location": ""
+              },
+              {
+                "type_name": "Self",
+                "crate_name": "",
+                "module_path": "",
+                "generic_args": [],
+                "is_generic_param": true,
+                "src_location": ""
+              }
+            ],
+            "is_generic_param": false,
+            "src_location": ""
+          },
+          {
+            "type_name": "PathBuf",
+            "crate_name": "std",
+            "module_path": "path",
+            "generic_args": [],
+            "is_generic_param": false,
+            "src_location": ""
+          },
+          {
+            "type_name": "&'_ str",
+            "crate_name": "core",
+            "module_path": "primitive",
+            "generic_args": [
+              {
+                "type_name": "str",
+                "crate_name": "core",
+                "module_path": "primitive",
+                "generic_args": [],
+                "is_generic_param": false,
+                "src_location": ""
+              }
+            ],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "literals_used": [
+          {
+            "value": "\"fdep_output\"",
+            "literal_type": "&'{erased} str",
+            "span": "src/lib.rs",
+            "line_number": 48,
+            "column_number": 70
+          }
+        ],
+        "functions_called": [
+          {
+            "name": "from",
+            "fully_qualified_path": "std::convert::From::from",
+            "is_method": false,
+            "receiver_type": null,
+            "input_types": [
+              {
+                "type_name": "T",
+                "crate_name": "",
+                "module_path": "",
+                "generic_args": [],
+                "is_generic_param": true,
+                "src_location": ""
+              }
+            ],
+            "output_types": [
+              {
+                "type_name": "Self",
+                "crate_name": "",
+                "module_path": "",
+                "generic_args": [],
+                "is_generic_param": true,
+                "src_location": ""
+              }
+            ],
+            "src_location": "src/lib.rs",
+            "line_number": 48,
+            "column_number": 56,
+            "origin_crate": "core",
+            "origin_module": "convert::From",
+            "call_type": "function"
+          }
+        ],
+        "methods_called": [],
+        "where_functions": {},
+        "src_location": "src/lib.rs",
+        "src_code": "|| PathBuf::from(\"fdep_output\")",
+        "line_number_start": 48,
+        "line_number_end": 48,
+        "crate_name": "local",
+        "module_path": "closure",
+        "visibility": "private",
+        "doc_comments": "",
+        "attributes": []
+      }
+    },
+    "src_location": "src/lib.rs",
+    "src_code": "pub fn analyze<'tcx>(tcx: &TyCtxt<'tcx>) {\n    // Try to determine output directory from command-line arguments\n    let output_dir = get_output_dir().unwrap_or_else(|| PathBuf::from(\"fdep_output\"));\n\n    // Create output directory if it doesn't exist\n    fs::create_dir_all(&output_dir).expect(\"Failed to create output directory\");\n\n    // Initialize visitor with output directory\n    let mut visitor = visitor::CallgraphVisitor::with_output_dir(&tcx, output_dir);\n\n    // Visit all items in the crate\n    tcx.hir().visit_all_item_likes_in_crate(&mut visitor);\n\n    // Dump collected data\n    visitor.dump();\n\n    // Print completion message\n    println!(\"Callgraph analysis completed successfully!\");\n}",
+    "line_number_start": 46,
+    "line_number_end": 64,
+    "crate_name": "fdep",
+    "module_path": "",
+    "visibility": "pub",
+    "doc_comments": "",
+    "attributes": []
+  },
+  {
+    "name": "get_output_dir",
+    "fully_qualified_path": "fdep::get_output_dir",
+    "is_method": false,
+    "self_type": null,
+    "input_types": [],
+    "output_types": [
+      {
+        "type_name": "Option",
+        "crate_name": "core",
+        "module_path": "option",
+        "generic_args": [],
+        "is_generic_param": false,
+        "src_location": "src/lib.rs"
+      }
+    ],
+    "types_used": [
+      {
+        "type_name": "bool",
+        "crate_name": "core",
+        "module_path": "primitive",
+        "generic_args": [],
+        "is_generic_param": false,
+        "src_location": ""
+      },
+      {
+        "type_name": "Iter<String>",
+        "crate_name": "core",
+        "module_path": "slice::iter",
+        "generic_args": [
+          {
+            "type_name": "String",
+            "crate_name": "alloc",
+            "module_path": "string",
+            "generic_args": [],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "is_generic_param": false,
+        "src_location": ""
+      },
+      {
+        "type_name": "fn() -> Args",
+        "crate_name": "std",
+        "module_path": "env",
+        "generic_args": [
+          {
+            "type_name": "Args",
+            "crate_name": "std",
+            "module_path": "env",
+            "generic_args": [],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "is_generic_param": false,
+        "src_location": ""
+      },
+      {
+        "type_name": "()",
+        "crate_name": "core",
+        "module_path": "primitive",
+        "generic_args": [],
+        "is_generic_param": false,
+        "src_location": ""
+      },
+      {
+        "type_name": "Option<&'_ str>",
+        "crate_name": "core",
+        "module_path": "option",
+        "generic_args": [
+          {
+            "type_name": "&'_ str",
+            "crate_name": "core",
+            "module_path": "primitive",
+            "generic_args": [
+              {
+                "type_name": "str",
+                "crate_name": "core",
+                "module_path": "primitive",
+                "generic_args": [],
+                "is_generic_param": false,
+                "src_location": ""
+              }
+            ],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "is_generic_param": false,
+        "src_location": ""
+      },
+      {
+        "type_name": "String",
+        "crate_name": "alloc",
+        "module_path": "string",
+        "generic_args": [],
+        "is_generic_param": false,
+        "src_location": ""
+      },
+      {
+        "type_name": "Split<char>",
+        "crate_name": "core",
+        "module_path": "str::iter",
+        "generic_args": [
+          {
+            "type_name": "char",
+            "crate_name": "core",
+            "module_path": "primitive",
+            "generic_args": [],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "is_generic_param": false,
+        "src_location": ""
+      },
+      {
+        "type_name": "char",
+        "crate_name": "core",
+        "module_path": "primitive",
+        "generic_args": [],
+        "is_generic_param": false,
+        "src_location": ""
+      },
+      {
+        "type_name": "Option<Infallible>",
+        "crate_name": "core",
+        "module_path": "option",
+        "generic_args": [
+          {
+            "type_name": "Infallible",
+            "crate_name": "core",
+            "module_path": "convert",
+            "generic_args": [],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "is_generic_param": false,
+        "src_location": ""
+      },
+      {
+        "type_name": "fn(T) -> Self",
+        "crate_name": "core",
+        "module_path": "convert::From",
+        "generic_args": [
+          {
+            "type_name": "T",
+            "crate_name": "",
+            "module_path": "",
+            "generic_args": [],
+            "is_generic_param": true,
+            "src_location": ""
+          },
+          {
+            "type_name": "Self",
+            "crate_name": "",
+            "module_path": "",
+            "generic_args": [],
+            "is_generic_param": true,
+            "src_location": ""
+          }
+        ],
+        "is_generic_param": false,
+        "src_location": ""
+      },
+      {
+        "type_name": "Vec<String, Global>",
+        "crate_name": "alloc",
+        "module_path": "vec",
+        "generic_args": [
+          {
+            "type_name": "String",
+            "crate_name": "alloc",
+            "module_path": "string",
+            "generic_args": [],
+            "is_generic_param": false,
+            "src_location": ""
+          },
+          {
+            "type_name": "Global",
+            "crate_name": "alloc",
+            "module_path": "alloc",
+            "generic_args": [],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "is_generic_param": false,
+        "src_location": ""
+      },
+      {
+        "type_name": "fn(Self) -> Alias(Projection, AliasTy { args: [Self/#0], def_id: DefId(2:8333 ~ core[5d62]::iter::traits::collect::IntoIterator::IntoIter), .. })",
+        "crate_name": "core",
+        "module_path": "iter::traits::collect::IntoIterator",
+        "generic_args": [
+          {
+            "type_name": "Self",
+            "crate_name": "",
+            "module_path": "",
+            "generic_args": [],
+            "is_generic_param": true,
+            "src_location": ""
+          },
+          {
+            "type_name": "Alias(Projection, AliasTy { args: [Self/#0], def_id: DefId(2:8333 ~ core[5d62]::iter::traits::collect::IntoIterator::IntoIter), .. })",
+            "crate_name": "unknown",
+            "module_path": "unknown",
+            "generic_args": [],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "is_generic_param": false,
+        "src_location": ""
+      },
+      {
+        "type_name": "fn(Self) -> ControlFlow<Alias(Projection, AliasTy { args: [Self/#0], def_id: DefId(2:3792 ~ core[5d62]::ops::try_trait::Try::Residual), .. }), Alias(Projection, AliasTy { args: [Self/#0], def_id: DefId(2:3791 ~ core[5d62]::ops::try_trait::Try::Output), .. })>",
+        "crate_name": "core",
+        "module_path": "ops::try_trait::Try",
+        "generic_args": [
+          {
+            "type_name": "Self",
+            "crate_name": "",
+            "module_path": "",
+            "generic_args": [],
+            "is_generic_param": true,
+            "src_location": ""
+          },
+          {
+            "type_name": "ControlFlow<Alias(Projection, AliasTy { args: [Self/#0], def_id: DefId(2:3792 ~ core[5d62]::ops::try_trait::Try::Residual), .. }), Alias(Projection, AliasTy { args: [Self/#0], def_id: DefId(2:3791 ~ core[5d62]::ops::try_trait::Try::Output), .. })>",
+            "crate_name": "core",
+            "module_path": "ops::control_flow",
+            "generic_args": [
+              {
+                "type_name": "Alias(Projection, AliasTy { args: [Self/#0], def_id: DefId(2:3792 ~ core[5d62]::ops::try_trait::Try::Residual), .. })",
+                "crate_name": "unknown",
+                "module_path": "unknown",
+                "generic_args": [],
+                "is_generic_param": false,
+                "src_location": ""
+              },
+              {
+                "type_name": "Alias(Projection, AliasTy { args: [Self/#0], def_id: DefId(2:3791 ~ core[5d62]::ops::try_trait::Try::Output), .. })",
+                "crate_name": "unknown",
+                "module_path": "unknown",
+                "generic_args": [],
+                "is_generic_param": false,
+                "src_location": ""
+              }
+            ],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "is_generic_param": false,
+        "src_location": ""
+      },
+      {
+        "type_name": "PathBuf",
+        "crate_name": "std",
+        "module_path": "path",
+        "generic_args": [],
+        "is_generic_param": false,
+        "src_location": ""
+      },
+      {
+        "type_name": "&'_ String",
+        "crate_name": "core",
+        "module_path": "primitive",
+        "generic_args": [
+          {
+            "type_name": "String",
+            "crate_name": "alloc",
+            "module_path": "string",
+            "generic_args": [],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "is_generic_param": false,
+        "src_location": ""
+      },
+      {
+        "type_name": "fn(T) -> Option<T>",
+        "crate_name": "core",
+        "module_path": "option::Option::Some",
+        "generic_args": [
+          {
+            "type_name": "T",
+            "crate_name": "",
+            "module_path": "",
+            "generic_args": [],
+            "is_generic_param": true,
+            "src_location": ""
+          },
+          {
+            "type_name": "Option<T>",
+            "crate_name": "core",
+            "module_path": "option",
+            "generic_args": [
+              {
+                "type_name": "T",
+                "crate_name": "",
+                "module_path": "",
+                "generic_args": [],
+                "is_generic_param": true,
+                "src_location": ""
+              }
+            ],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "is_generic_param": false,
+        "src_location": ""
+      },
+      {
+        "type_name": "Enumerate<Iter<String>>",
+        "crate_name": "core",
+        "module_path": "iter::adapters::enumerate",
+        "generic_args": [
+          {
+            "type_name": "Iter<String>",
+            "crate_name": "core",
+            "module_path": "slice::iter",
+            "generic_args": [
+              {
+                "type_name": "String",
+                "crate_name": "alloc",
+                "module_path": "string",
+                "generic_args": [],
+                "is_generic_param": false,
+                "src_location": ""
+              }
+            ],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "is_generic_param": false,
+        "src_location": ""
+      },
+      {
+        "type_name": "fn(R) -> Self",
+        "crate_name": "core",
+        "module_path": "ops::try_trait::FromResidual",
+        "generic_args": [
+          {
+            "type_name": "R",
+            "crate_name": "",
+            "module_path": "",
+            "generic_args": [],
+            "is_generic_param": true,
+            "src_location": ""
+          },
+          {
+            "type_name": "Self",
+            "crate_name": "",
+            "module_path": "",
+            "generic_args": [],
+            "is_generic_param": true,
+            "src_location": ""
+          }
+        ],
+        "is_generic_param": false,
+        "src_location": ""
+      },
+      {
+        "type_name": "Args",
+        "crate_name": "std",
+        "module_path": "env",
+        "generic_args": [],
+        "is_generic_param": false,
+        "src_location": ""
+      },
+      {
+        "type_name": "!",
+        "crate_name": "unknown",
+        "module_path": "unknown",
+        "generic_args": [],
+        "is_generic_param": false,
+        "src_location": ""
+      },
+      {
+        "type_name": "Option<(usize, &'_ String)>",
+        "crate_name": "core",
+        "module_path": "option",
+        "generic_args": [
+          {
+            "type_name": "(usize, &'_ String)",
+            "crate_name": "core",
+            "module_path": "primitive",
+            "generic_args": [
+              {
+                "type_name": "usize",
+                "crate_name": "core",
+                "module_path": "primitive",
+                "generic_args": [],
+                "is_generic_param": false,
+                "src_location": ""
+              },
+              {
+                "type_name": "&'_ String",
+                "crate_name": "core",
+                "module_path": "primitive",
+                "generic_args": [
+                  {
+                    "type_name": "String",
+                    "crate_name": "alloc",
+                    "module_path": "string",
+                    "generic_args": [],
+                    "is_generic_param": false,
+                    "src_location": ""
+                  }
+                ],
+                "is_generic_param": false,
+                "src_location": ""
+              }
+            ],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "is_generic_param": false,
+        "src_location": ""
+      },
+      {
+        "type_name": "&'_ str",
+        "crate_name": "core",
+        "module_path": "primitive",
+        "generic_args": [
+          {
+            "type_name": "str",
+            "crate_name": "core",
+            "module_path": "primitive",
+            "generic_args": [],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "is_generic_param": false,
+        "src_location": ""
+      },
+      {
+        "type_name": "fn(&'_ mut Self) -> Option<Alias(Projection, AliasTy { args: [Self/#0], def_id: DefId(2:8505 ~ core[5d62]::iter::traits::iterator::Iterator::Item), .. })>",
+        "crate_name": "core",
+        "module_path": "iter::traits::iterator::Iterator",
+        "generic_args": [
+          {
+            "type_name": "&'_ mut Self",
+            "crate_name": "core",
+            "module_path": "primitive",
+            "generic_args": [
+              {
+                "type_name": "Self",
+                "crate_name": "",
+                "module_path": "",
+                "generic_args": [],
+                "is_generic_param": true,
+                "src_location": ""
+              }
+            ],
+            "is_generic_param": false,
+            "src_location": ""
+          },
+          {
+            "type_name": "Option<Alias(Projection, AliasTy { args: [Self/#0], def_id: DefId(2:8505 ~ core[5d62]::iter::traits::iterator::Iterator::Item), .. })>",
+            "crate_name": "core",
+            "module_path": "option",
+            "generic_args": [
+              {
+                "type_name": "Alias(Projection, AliasTy { args: [Self/#0], def_id: DefId(2:8505 ~ core[5d62]::iter::traits::iterator::Iterator::Item), .. })",
+                "crate_name": "unknown",
+                "module_path": "unknown",
+                "generic_args": [],
+                "is_generic_param": false,
+                "src_location": ""
+              }
+            ],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "is_generic_param": false,
+        "src_location": ""
+      },
+      {
+        "type_name": "&'_ mut Enumerate<Iter<String>>",
+        "crate_name": "core",
+        "module_path": "primitive",
+        "generic_args": [
+          {
+            "type_name": "Enumerate<Iter<String>>",
+            "crate_name": "core",
+            "module_path": "iter::adapters::enumerate",
+            "generic_args": [
+              {
+                "type_name": "Iter<String>",
+                "crate_name": "core",
+                "module_path": "slice::iter",
+                "generic_args": [
+                  {
+                    "type_name": "String",
+                    "crate_name": "alloc",
+                    "module_path": "string",
+                    "generic_args": [],
+                    "is_generic_param": false,
+                    "src_location": ""
+                  }
+                ],
+                "is_generic_param": false,
+                "src_location": ""
+              }
+            ],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "is_generic_param": false,
+        "src_location": ""
+      },
+      {
+        "type_name": "usize",
+        "crate_name": "core",
+        "module_path": "primitive",
+        "generic_args": [],
+        "is_generic_param": false,
+        "src_location": ""
+      },
+      {
+        "type_name": "ControlFlow<Option<Infallible>, &'_ str>",
+        "crate_name": "core",
+        "module_path": "ops::control_flow",
+        "generic_args": [
+          {
+            "type_name": "Option<Infallible>",
+            "crate_name": "core",
+            "module_path": "option",
+            "generic_args": [
+              {
+                "type_name": "Infallible",
+                "crate_name": "core",
+                "module_path": "convert",
+                "generic_args": [],
+                "is_generic_param": false,
+                "src_location": ""
+              }
+            ],
+            "is_generic_param": false,
+            "src_location": ""
+          },
+          {
+            "type_name": "&'_ str",
+            "crate_name": "core",
+            "module_path": "primitive",
+            "generic_args": [
+              {
+                "type_name": "str",
+                "crate_name": "core",
+                "module_path": "primitive",
+                "generic_args": [],
+                "is_generic_param": false,
+                "src_location": ""
+              }
+            ],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "is_generic_param": false,
+        "src_location": ""
+      },
+      {
+        "type_name": "Option<PathBuf>",
+        "crate_name": "core",
+        "module_path": "option",
+        "generic_args": [
+          {
+            "type_name": "PathBuf",
+            "crate_name": "std",
+            "module_path": "path",
+            "generic_args": [],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "is_generic_param": false,
+        "src_location": ""
+      }
+    ],
+    "literals_used": [
+      {
+        "value": "\"--output\"",
+        "literal_type": "&'{erased} str",
+        "span": "src/lib.rs",
+        "line_number": 70,
+        "column_number": 18
+      },
+      {
+        "value": "\"-o\"",
+        "literal_type": "&'{erased} str",
+        "span": "src/lib.rs",
+        "line_number": 70,
+        "column_number": 39
+      },
+      {
+        "value": "1",
+        "literal_type": "unsigned integer",
+        "span": "src/lib.rs",
+        "line_number": 71,
+        "column_number": 19
+      },
+      {
+        "value": "1",
+        "literal_type": "unsigned integer",
+        "span": "src/lib.rs",
+        "line_number": 72,
+        "column_number": 52
+      },
+      {
+        "value": "\"--output=\"",
+        "literal_type": "&'{erased} str",
+        "span": "src/lib.rs",
+        "line_number": 76,
+        "column_number": 27
+      },
+      {
+        "value": "'='",
+        "literal_type": "char",
+        "span": "src/lib.rs",
+        "line_number": 77,
+        "column_number": 33
+      },
+      {
+        "value": "1",
+        "literal_type": "unsigned integer",
+        "span": "src/lib.rs",
+        "line_number": 77,
+        "column_number": 42
+      }
+    ],
+    "functions_called": [
+      {
+        "name": "args",
+        "fully_qualified_path": "std::env::args",
+        "is_method": false,
+        "receiver_type": null,
+        "input_types": [],
+        "output_types": [
+          {
+            "type_name": "Args",
+            "crate_name": "std",
+            "module_path": "env",
+            "generic_args": [],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "src_location": "src/lib.rs",
+        "line_number": 68,
+        "column_number": 28,
+        "origin_crate": "std",
+        "origin_module": "env",
+        "call_type": "function"
+      },
+      {
+        "name": "into_iter",
+        "fully_qualified_path": "std::iter::IntoIterator::into_iter",
+        "is_method": false,
+        "receiver_type": null,
+        "input_types": [
+          {
+            "type_name": "Self",
+            "crate_name": "",
+            "module_path": "",
+            "generic_args": [],
+            "is_generic_param": true,
+            "src_location": ""
+          }
+        ],
+        "output_types": [
+          {
+            "type_name": "Alias(Projection, AliasTy { args: [Self/#0], def_id: DefId(2:8333 ~ core[5d62]::iter::traits::collect::IntoIterator::IntoIter), .. })",
+            "crate_name": "unknown",
+            "module_path": "unknown",
+            "generic_args": [],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "src_location": "src/lib.rs",
+        "line_number": 69,
+        "column_number": 20,
+        "origin_crate": "core",
+        "origin_module": "iter::traits::collect::IntoIterator",
+        "call_type": "function"
+      },
+      {
+        "name": "next",
+        "fully_qualified_path": "std::iter::Iterator::next",
+        "is_method": false,
+        "receiver_type": null,
+        "input_types": [
+          {
+            "type_name": "&'_ mut Self",
+            "crate_name": "core",
+            "module_path": "primitive",
+            "generic_args": [
+              {
+                "type_name": "Self",
+                "crate_name": "",
+                "module_path": "",
+                "generic_args": [],
+                "is_generic_param": true,
+                "src_location": ""
+              }
+            ],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "output_types": [
+          {
+            "type_name": "Option<Alias(Projection, AliasTy { args: [Self/#0], def_id: DefId(2:8505 ~ core[5d62]::iter::traits::iterator::Iterator::Item), .. })>",
+            "crate_name": "core",
+            "module_path": "option",
+            "generic_args": [
+              {
+                "type_name": "Alias(Projection, AliasTy { args: [Self/#0], def_id: DefId(2:8505 ~ core[5d62]::iter::traits::iterator::Iterator::Item), .. })",
+                "crate_name": "unknown",
+                "module_path": "unknown",
+                "generic_args": [],
+                "is_generic_param": false,
+                "src_location": ""
+              }
+            ],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "src_location": "src/lib.rs",
+        "line_number": 69,
+        "column_number": 20,
+        "origin_crate": "core",
+        "origin_module": "iter::traits::iterator::Iterator",
+        "call_type": "function"
+      },
+      {
+        "name": "Some",
+        "fully_qualified_path": "std::prelude::v1::Some",
+        "is_method": false,
+        "receiver_type": null,
+        "input_types": [
+          {
+            "type_name": "T",
+            "crate_name": "",
+            "module_path": "",
+            "generic_args": [],
+            "is_generic_param": true,
+            "src_location": ""
+          }
+        ],
+        "output_types": [
+          {
+            "type_name": "Option<T>",
+            "crate_name": "core",
+            "module_path": "option",
+            "generic_args": [
+              {
+                "type_name": "T",
+                "crate_name": "",
+                "module_path": "",
+                "generic_args": [],
+                "is_generic_param": true,
+                "src_location": ""
+              }
+            ],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "src_location": "src/lib.rs",
+        "line_number": 72,
+        "column_number": 23,
+        "origin_crate": "core",
+        "origin_module": "option::Option::Some",
+        "call_type": "function"
+      },
+      {
+        "name": "from",
+        "fully_qualified_path": "std::convert::From::from",
+        "is_method": false,
+        "receiver_type": null,
+        "input_types": [
+          {
+            "type_name": "T",
+            "crate_name": "",
+            "module_path": "",
+            "generic_args": [],
+            "is_generic_param": true,
+            "src_location": ""
+          }
+        ],
+        "output_types": [
+          {
+            "type_name": "Self",
+            "crate_name": "",
+            "module_path": "",
+            "generic_args": [],
+            "is_generic_param": true,
+            "src_location": ""
+          }
+        ],
+        "src_location": "src/lib.rs",
+        "line_number": 72,
+        "column_number": 28,
+        "origin_crate": "core",
+        "origin_module": "convert::From",
+        "call_type": "function"
+      },
+      {
+        "name": "branch",
+        "fully_qualified_path": "std::ops::Try::branch",
+        "is_method": false,
+        "receiver_type": null,
+        "input_types": [
+          {
+            "type_name": "Self",
+            "crate_name": "",
+            "module_path": "",
+            "generic_args": [],
+            "is_generic_param": true,
+            "src_location": ""
+          }
+        ],
+        "output_types": [
+          {
+            "type_name": "ControlFlow<Alias(Projection, AliasTy { args: [Self/#0], def_id: DefId(2:3792 ~ core[5d62]::ops::try_trait::Try::Residual), .. }), Alias(Projection, AliasTy { args: [Self/#0], def_id: DefId(2:3791 ~ core[5d62]::ops::try_trait::Try::Output), .. })>",
+            "crate_name": "core",
+            "module_path": "ops::control_flow",
+            "generic_args": [
+              {
+                "type_name": "Alias(Projection, AliasTy { args: [Self/#0], def_id: DefId(2:3792 ~ core[5d62]::ops::try_trait::Try::Residual), .. })",
+                "crate_name": "unknown",
+                "module_path": "unknown",
+                "generic_args": [],
+                "is_generic_param": false,
+                "src_location": ""
+              },
+              {
+                "type_name": "Alias(Projection, AliasTy { args: [Self/#0], def_id: DefId(2:3791 ~ core[5d62]::ops::try_trait::Try::Output), .. })",
+                "crate_name": "unknown",
+                "module_path": "unknown",
+                "generic_args": [],
+                "is_generic_param": false,
+                "src_location": ""
+              }
+            ],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "src_location": "src/lib.rs",
+        "line_number": 77,
+        "column_number": 23,
+        "origin_crate": "core",
+        "origin_module": "ops::try_trait::Try",
+        "call_type": "function"
+      },
+      {
+        "name": "from_residual",
+        "fully_qualified_path": "std::ops::FromResidual::from_residual",
+        "is_method": false,
+        "receiver_type": null,
+        "input_types": [
+          {
+            "type_name": "R",
+            "crate_name": "",
+            "module_path": "",
+            "generic_args": [],
+            "is_generic_param": true,
+            "src_location": ""
+          }
+        ],
+        "output_types": [
+          {
+            "type_name": "Self",
+            "crate_name": "",
+            "module_path": "",
+            "generic_args": [],
+            "is_generic_param": true,
+            "src_location": ""
+          }
+        ],
+        "src_location": "src/lib.rs",
+        "line_number": 77,
+        "column_number": 44,
+        "origin_crate": "core",
+        "origin_module": "ops::try_trait::FromResidual",
+        "call_type": "function"
+      },
+      {
+        "name": "Some",
+        "fully_qualified_path": "std::prelude::v1::Some",
+        "is_method": false,
+        "receiver_type": null,
+        "input_types": [
+          {
+            "type_name": "T",
+            "crate_name": "",
+            "module_path": "",
+            "generic_args": [],
+            "is_generic_param": true,
+            "src_location": ""
+          }
+        ],
+        "output_types": [
+          {
+            "type_name": "Option<T>",
+            "crate_name": "core",
+            "module_path": "option",
+            "generic_args": [
+              {
+                "type_name": "T",
+                "crate_name": "",
+                "module_path": "",
+                "generic_args": [],
+                "is_generic_param": true,
+                "src_location": ""
+              }
+            ],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "src_location": "src/lib.rs",
+        "line_number": 78,
+        "column_number": 19,
+        "origin_crate": "core",
+        "origin_module": "option::Option::Some",
+        "call_type": "function"
+      },
+      {
+        "name": "from",
+        "fully_qualified_path": "std::convert::From::from",
+        "is_method": false,
+        "receiver_type": null,
+        "input_types": [
+          {
+            "type_name": "T",
+            "crate_name": "",
+            "module_path": "",
+            "generic_args": [],
+            "is_generic_param": true,
+            "src_location": ""
+          }
+        ],
+        "output_types": [
+          {
+            "type_name": "Self",
+            "crate_name": "",
+            "module_path": "",
+            "generic_args": [],
+            "is_generic_param": true,
+            "src_location": ""
+          }
+        ],
+        "src_location": "src/lib.rs",
+        "line_number": 78,
+        "column_number": 24,
+        "origin_crate": "core",
+        "origin_module": "convert::From",
+        "call_type": "function"
+      }
+    ],
+    "methods_called": [
+      {
+        "name": "collect",
+        "fully_qualified_path": "std::iter::Iterator::collect",
+        "is_method": true,
+        "receiver_type": {
+          "type_name": "Args",
+          "crate_name": "std",
+          "module_path": "env",
+          "generic_args": [],
+          "is_generic_param": false,
+          "src_location": ""
+        },
+        "input_types": [],
+        "output_types": [
+          {
+            "type_name": "B",
+            "crate_name": "",
+            "module_path": "",
+            "generic_args": [],
+            "is_generic_param": true,
+            "src_location": ""
+          }
+        ],
+        "src_location": "src/lib.rs",
+        "line_number": 68,
+        "column_number": 40,
+        "origin_crate": "core",
+        "origin_module": "iter::traits::iterator::Iterator",
+        "call_type": "method"
+      },
+      {
+        "name": "enumerate",
+        "fully_qualified_path": "std::iter::Iterator::enumerate",
+        "is_method": true,
+        "receiver_type": {
+          "type_name": "Iter<String>",
+          "crate_name": "core",
+          "module_path": "slice::iter",
+          "generic_args": [
+            {
+              "type_name": "String",
+              "crate_name": "alloc",
+              "module_path": "string",
+              "generic_args": [],
+              "is_generic_param": false,
+              "src_location": ""
+            }
+          ],
+          "is_generic_param": false,
+          "src_location": ""
+        },
+        "input_types": [],
+        "output_types": [
+          {
+            "type_name": "Enumerate<Self>",
+            "crate_name": "core",
+            "module_path": "iter::adapters::enumerate",
+            "generic_args": [
+              {
+                "type_name": "Self",
+                "crate_name": "",
+                "module_path": "",
+                "generic_args": [],
+                "is_generic_param": true,
+                "src_location": ""
+              }
+            ],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "src_location": "src/lib.rs",
+        "line_number": 69,
+        "column_number": 32,
+        "origin_crate": "core",
+        "origin_module": "iter::traits::iterator::Iterator",
+        "call_type": "method"
+      },
+      {
+        "name": "iter",
+        "fully_qualified_path": "core::slice::<impl [T]>::iter",
+        "is_method": true,
+        "receiver_type": {
+          "type_name": "Vec<String, Global>",
+          "crate_name": "alloc",
+          "module_path": "vec",
+          "generic_args": [
+            {
+              "type_name": "String",
+              "crate_name": "alloc",
+              "module_path": "string",
+              "generic_args": [],
+              "is_generic_param": false,
+              "src_location": ""
+            },
+            {
+              "type_name": "Global",
+              "crate_name": "alloc",
+              "module_path": "alloc",
+              "generic_args": [],
+              "is_generic_param": false,
+              "src_location": ""
+            }
+          ],
+          "is_generic_param": false,
+          "src_location": ""
+        },
+        "input_types": [],
+        "output_types": [
+          {
+            "type_name": "Iter<T>",
+            "crate_name": "core",
+            "module_path": "slice::iter",
+            "generic_args": [
+              {
+                "type_name": "T",
+                "crate_name": "",
+                "module_path": "",
+                "generic_args": [],
+                "is_generic_param": true,
+                "src_location": ""
+              }
+            ],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "src_location": "src/lib.rs",
+        "line_number": 69,
+        "column_number": 25,
+        "origin_crate": "core",
+        "origin_module": "slice::{{impl}}",
+        "call_type": "method"
+      },
+      {
+        "name": "len",
+        "fully_qualified_path": "std::vec::Vec::<T, A>::len",
+        "is_method": true,
+        "receiver_type": {
+          "type_name": "Vec<String, Global>",
+          "crate_name": "alloc",
+          "module_path": "vec",
+          "generic_args": [
+            {
+              "type_name": "String",
+              "crate_name": "alloc",
+              "module_path": "string",
+              "generic_args": [],
+              "is_generic_param": false,
+              "src_location": ""
+            },
+            {
+              "type_name": "Global",
+              "crate_name": "alloc",
+              "module_path": "alloc",
+              "generic_args": [],
+              "is_generic_param": false,
+              "src_location": ""
+            }
+          ],
+          "is_generic_param": false,
+          "src_location": ""
+        },
+        "input_types": [],
+        "output_types": [
+          {
+            "type_name": "usize",
+            "crate_name": "core",
+            "module_path": "primitive",
+            "generic_args": [],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "src_location": "src/lib.rs",
+        "line_number": 71,
+        "column_number": 28,
+        "origin_crate": "alloc",
+        "origin_module": "vec::{{impl}}",
+        "call_type": "method"
+      },
+      {
+        "name": "starts_with",
+        "fully_qualified_path": "core::str::<impl str>::starts_with",
+        "is_method": true,
+        "receiver_type": {
+          "type_name": "&'_ String",
+          "crate_name": "core",
+          "module_path": "primitive",
+          "generic_args": [
+            {
+              "type_name": "String",
+              "crate_name": "alloc",
+              "module_path": "string",
+              "generic_args": [],
+              "is_generic_param": false,
+              "src_location": ""
+            }
+          ],
+          "is_generic_param": false,
+          "src_location": ""
+        },
+        "input_types": [
+          {
+            "type_name": "P",
+            "crate_name": "",
+            "module_path": "",
+            "generic_args": [],
+            "is_generic_param": true,
+            "src_location": ""
+          }
+        ],
+        "output_types": [
+          {
+            "type_name": "bool",
+            "crate_name": "core",
+            "module_path": "primitive",
+            "generic_args": [],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "src_location": "src/lib.rs",
+        "line_number": 76,
+        "column_number": 15,
+        "origin_crate": "core",
+        "origin_module": "str::{{impl}}",
+        "call_type": "method"
+      },
+      {
+        "name": "nth",
+        "fully_qualified_path": "std::iter::Iterator::nth",
+        "is_method": true,
+        "receiver_type": {
+          "type_name": "Split<char>",
+          "crate_name": "core",
+          "module_path": "str::iter",
+          "generic_args": [
+            {
+              "type_name": "char",
+              "crate_name": "core",
+              "module_path": "primitive",
+              "generic_args": [],
+              "is_generic_param": false,
+              "src_location": ""
+            }
+          ],
+          "is_generic_param": false,
+          "src_location": ""
+        },
+        "input_types": [
+          {
+            "type_name": "usize",
+            "crate_name": "core",
+            "module_path": "primitive",
+            "generic_args": [],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "output_types": [
+          {
+            "type_name": "Option<Alias(Projection, AliasTy { args: [Self/#0], def_id: DefId(2:8505 ~ core[5d62]::iter::traits::iterator::Iterator::Item), .. })>",
+            "crate_name": "core",
+            "module_path": "option",
+            "generic_args": [
+              {
+                "type_name": "Alias(Projection, AliasTy { args: [Self/#0], def_id: DefId(2:8505 ~ core[5d62]::iter::traits::iterator::Iterator::Item), .. })",
+                "crate_name": "unknown",
+                "module_path": "unknown",
+                "generic_args": [],
+                "is_generic_param": false,
+                "src_location": ""
+              }
+            ],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "src_location": "src/lib.rs",
+        "line_number": 77,
+        "column_number": 38,
+        "origin_crate": "core",
+        "origin_module": "iter::traits::iterator::Iterator",
+        "call_type": "method"
+      },
+      {
+        "name": "split",
+        "fully_qualified_path": "core::str::<impl str>::split",
+        "is_method": true,
+        "receiver_type": {
+          "type_name": "&'_ String",
+          "crate_name": "core",
+          "module_path": "primitive",
+          "generic_args": [
+            {
+              "type_name": "String",
+              "crate_name": "alloc",
+              "module_path": "string",
+              "generic_args": [],
+              "is_generic_param": false,
+              "src_location": ""
+            }
+          ],
+          "is_generic_param": false,
+          "src_location": ""
+        },
+        "input_types": [
+          {
+            "type_name": "P",
+            "crate_name": "",
+            "module_path": "",
+            "generic_args": [],
+            "is_generic_param": true,
+            "src_location": ""
+          }
+        ],
+        "output_types": [
+          {
+            "type_name": "Split<P>",
+            "crate_name": "core",
+            "module_path": "str::iter",
+            "generic_args": [
+              {
+                "type_name": "P",
+                "crate_name": "",
+                "module_path": "",
+                "generic_args": [],
+                "is_generic_param": true,
+                "src_location": ""
+              }
+            ],
+            "is_generic_param": false,
+            "src_location": ""
+          }
+        ],
+        "src_location": "src/lib.rs",
+        "line_number": 77,
+        "column_number": 27,
+        "origin_crate": "core",
+        "origin_module": "str::{{impl}}",
+        "call_type": "method"
+      }
+    ],
+    "where_functions": {},
+    "src_location": "src/lib.rs",
+    "src_code": "fn get_output_dir() -> Option<PathBuf> {\n    let args: Vec<String> = env::args().collect();\n    for (i, arg) in args.iter().enumerate() {\n        if arg == \"--output\" || arg == \"-o\" {\n            if i + 1 < args.len() {\n                return Some(PathBuf::from(&args[i + 1]));\n            }\n        }\n\n        if arg.starts_with(\"--output=\") {\n            let path = arg.split('=').nth(1)?;\n            return Some(PathBuf::from(path));\n        }\n    }\n    None\n}",
+    "line_number_start": 67,
+    "line_number_end": 82,
+    "crate_name": "fdep",
+    "module_path": "",
+    "visibility": "pub()",
+    "doc_comments": "",
+    "attributes": []
+  }
+]
