@@ -274,6 +274,7 @@ fn in_cargo_fdep() {
                 package_manifest_directory == current_dir
             }
         });
+        let mut visited_packages = Vec::new();
         match package_index {
             Some(index) => process_package(metadata.packages.remove(index)),
             None => {
@@ -283,9 +284,12 @@ fn in_cargo_fdep() {
                     for member in metadata.workspace_members.iter() {
                         let package = metadata[member].clone();
                         let package_manifest_path = Path::new(&package.manifest_path);
-                        if package_manifest_path.starts_with(current_dir.as_ref().unwrap()) {
+                        if package_manifest_path.starts_with(current_dir.as_ref().unwrap())
+                            && !visited_packages.contains(&package.id.clone())
+                        {
                             println!("{:?}", package.name);
-                            process_package(package);
+                            process_package(package.clone());
+                            visited_packages.push(package.id);
                         }
                     }
                 }
