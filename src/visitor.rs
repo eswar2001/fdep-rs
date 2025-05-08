@@ -164,12 +164,12 @@ impl<'tcx> CallgraphVisitor<'tcx> {
             // Create output directory if it doesn't exist
             fs::create_dir_all(output_dir).expect("Failed to create output directory");
 
-            // Write all function data to a JSON file
-            let all_json_path = output_dir.join("all_functions.json");
-            let all_json = serde_json::to_string_pretty(&self.function_data)
-                .expect("Failed to serialize functions");
-            fs::write(&all_json_path, all_json).expect("Failed to write functions JSON");
-            println!("Wrote all function data to: {}", all_json_path.display());
+            // // Write all function data to a JSON file
+            // let all_json_path = output_dir.join("all_functions.json");
+            // let all_json = serde_json::to_string_pretty(&self.function_data)
+            //     .expect("Failed to serialize functions");
+            // fs::write(&all_json_path, all_json).expect("Failed to write functions JSON");
+            // println!("Wrote all function data to: {}", all_json_path.display());
 
             // Group functions by file
             let mut file_to_functions: HashMap<String, Vec<Function>> = HashMap::new();

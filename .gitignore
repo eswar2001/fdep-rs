@@ -3,3 +3,4 @@ target/
 
 Cargo.lock
 rust-toolchain.toml
+.DS_Store
