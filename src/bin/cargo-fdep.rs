@@ -3,13 +3,12 @@
 extern crate rustc_version;
 extern crate wait_timeout;
 
+use rustc_version::VersionMeta;
 use std::env;
 use std::fmt::Display;
 use std::path::{Path, PathBuf};
 use std::process::Command;
 use std::time::Duration;
-
-use rustc_version::VersionMeta;
 
 use wait_timeout::ChildExt;
 
@@ -99,46 +98,6 @@ fn version_info() -> VersionMeta {
         .expect("failed to determine underlying rustc version of Fdep")
 }
 
-fn cargo_package() -> cargo_metadata::Package {
-    // We need to get the manifest, and then the metadata, to enumerate targets.
-    let manifest_path =
-        get_arg_flag_value("--manifest-path").map(|m| Path::new(&m).canonicalize().unwrap());
-
-    let mut cmd = cargo_metadata::MetadataCommand::new();
-    if let Some(manifest_path) = &manifest_path {
-        cmd.manifest_path(manifest_path);
-    }
-    let mut metadata = match cmd.exec() {
-        Ok(metadata) => metadata,
-        Err(e) => show_error(format!("Could not obtain Cargo metadata\n{}", e)),
-    };
-    let current_dir = std::env::current_dir();
-
-    let package_index = metadata
-        .packages
-        .iter()
-        .position(|package| {
-            let package_manifest_path = Path::new(&package.manifest_path);
-
-            if let Some(manifest_path) = &manifest_path {
-                package_manifest_path == manifest_path
-            } else {
-                let current_dir = current_dir
-                    .as_ref()
-                    .expect("could not read current directory");
-                let package_manifest_directory = package_manifest_path
-                    .parent()
-                    .expect("could not find parent directory of package manifest");
-                package_manifest_directory == current_dir
-            }
-        })
-        .unwrap_or_else(|| {
-            show_error("This seems to be a workspace, which is not supported by cargo-fdep");
-        });
-
-    metadata.packages.remove(package_index)
-}
-
 /// Returns the path to the `fdep` binary
 fn find_fdep() -> PathBuf {
     let mut path = std::env::current_exe().expect("current executable path invalid");
@@ -216,23 +175,22 @@ fn main() {
             "`cargo-fdep` called without first argument; please only invoke this binary through `cargo fdep`"
         )
     };
-
     match first.as_str() {
         "fdep" => {
-            eprintln!("Running cargo fdep");
+            // eprintln!("Running cargo fdep");
             // This arm is for when `cargo fdep` is called. We call `cargo rustc` for each applicable target,
             // but with the `RUSTC` env var set to the `cargo-fdep` binary so that we come back in the other branch,
             // and dispatch the invocations to `rustc` and `fdep`, respectively.
             in_cargo_fdep();
-            eprintln!("cargo fdep finished");
+            // eprintln!("cargo fdep finished");
         }
         // Check if arg is a path that ends with "/rustc"
         arg if arg.ends_with("rustc") => {
-            eprintln!("Running cargo rustc");
+            // eprintln!("Running cargo rustc");
             // This arm is executed when `cargo-fdep` runs `cargo rustc` with the `RUSTC_WRAPPER` env var set to itself:
             // dependencies get dispatched to `rustc`, the final test/binary to `fdep`.
             inside_cargo_rustc();
-            eprintln!("cargo rustc finished");
+            // eprintln!("cargo rustc finished");
         }
         _ => {
             show_error(
@@ -282,15 +240,63 @@ impl Display for TargetKind {
 }
 
 fn in_cargo_fdep() {
-    let verbose = has_arg_flag("-v");
+    let verbose: bool = has_arg_flag("-v");
 
     // Some basic sanity checks
     test_sysroot_consistency();
 
-    // Now run the command.
-    let package = cargo_package();
-    let mut targets: Vec<_> = package.targets.into_iter().collect();
+    let manifest_path =
+        get_arg_flag_value("--manifest-path").map(|m| Path::new(&m).canonicalize().unwrap());
 
+    let mut cmd = cargo_metadata::MetadataCommand::new();
+    if let Some(manifest_path) = &manifest_path {
+        cmd.manifest_path(manifest_path);
+    }
+    let mut metadata = match cmd.exec() {
+        Ok(metadata) => metadata,
+        Err(e) => show_error(format!("Could not obtain Cargo metadata\n{}", e)),
+    };
+    let current_dir = std::env::current_dir();
+
+    if metadata.packages.len() != 0 {
+        let package_index = metadata.packages.iter().position(|package| {
+            let package_manifest_path = Path::new(&package.manifest_path);
+
+            if let Some(manifest_path) = &manifest_path {
+                package_manifest_path == manifest_path
+            } else {
+                let current_dir = current_dir
+                    .as_ref()
+                    .expect("could not read current directory");
+                let package_manifest_directory = package_manifest_path
+                    .parent()
+                    .expect("could not find parent directory of package manifest");
+                package_manifest_directory == current_dir
+            }
+        });
+        match package_index {
+            Some(index) => process_package(metadata.packages.remove(index)),
+            None => {
+                // process_package(metadata.root_package().unwrap().clone());
+                // root_package
+                if metadata.workspace_members.len() != 0 {
+                    for member in metadata.workspace_members.iter() {
+                        let package = metadata[member].clone();
+                        let package_manifest_path = Path::new(&package.manifest_path);
+                        if package_manifest_path.starts_with(current_dir.as_ref().unwrap()) {
+                            println!("{:?}", package.name);
+                            process_package(package);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+fn process_package(package: cargo_metadata::Package) {
+    let mut targets: Vec<_> = package.targets.into_iter().collect();
+    let verbose = std::env::var_os("FDEP_VERBOSE").is_some();
     // Ensure `lib` is compiled before `bin`
     targets.sort_by_key(|target| TargetKind::from(target) as u8);
 

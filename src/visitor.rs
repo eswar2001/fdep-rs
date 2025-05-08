@@ -5,9 +5,8 @@ use rustc_hir::intravisit::{walk_expr, Visitor};
 use rustc_hir::{BodyId, HirId};
 use rustc_middle::hir::nested_filter;
 use rustc_middle::ty::ConstKind;
-use rustc_middle::ty::ParamEnvAnd;
 use rustc_middle::ty::TyCtxt;
-use rustc_middle::ty::{GenericArgKind, RegionKind, Ty, TyKind, Visibility};
+use rustc_middle::ty::{GenericArgKind, RegionKind, TyKind, Visibility};
 use rustc_span::Span;
 use serde::Serialize;
 use std::collections::{HashMap, HashSet};
@@ -109,18 +108,6 @@ pub struct CallgraphVisitor<'tcx> {
     // type context
     pub tcx: TyCtxt<'tcx>,
 
-    // free functions
-    pub functions: HashSet<(DefId, Span)>,
-    // trait method declarations without default implementation
-    pub method_decls: HashSet<DefId>,
-    // map decls to impls
-    pub method_impls: HashMap<DefId, Vec<DefId>>,
-
-    // static calls
-    pub static_calls: HashSet<Call>,
-    // dynamic calls
-    pub dynamic_calls: HashSet<Call>,
-
     // tracks the current function we're in during AST walk
     pub cur_fn: Option<DefId>,
 
@@ -134,11 +121,6 @@ impl<'tcx> CallgraphVisitor<'tcx> {
     pub fn new(tcx: &TyCtxt<'tcx>) -> CallgraphVisitor<'tcx> {
         CallgraphVisitor {
             tcx: *tcx,
-            functions: HashSet::new(),
-            method_decls: HashSet::new(),
-            method_impls: HashMap::new(),
-            static_calls: HashSet::new(),
-            dynamic_calls: HashSet::new(),
             cur_fn: None,
             function_data: Vec::new(),
             curr_module_path: Vec::new(),
@@ -153,24 +135,10 @@ impl<'tcx> CallgraphVisitor<'tcx> {
     }
 
     pub fn dump(&self) {
-        println!("Functions found: {}", self.functions.len());
-        println!("Method declarations: {}", self.method_decls.len());
-        println!("Static calls: {}", self.static_calls.len());
-        println!("Dynamic calls: {}", self.dynamic_calls.len());
-        println!("Enhanced function data: {}", self.function_data.len());
-
         // Export enhanced function data if output_dir is set
         if let Some(output_dir) = &self.output_dir {
             // Create output directory if it doesn't exist
             fs::create_dir_all(output_dir).expect("Failed to create output directory");
-
-            // // Write all function data to a JSON file
-            // let all_json_path = output_dir.join("all_functions.json");
-            // let all_json = serde_json::to_string_pretty(&self.function_data)
-            //     .expect("Failed to serialize functions");
-            // fs::write(&all_json_path, all_json).expect("Failed to write functions JSON");
-            // println!("Wrote all function data to: {}", all_json_path.display());
-
             // Group functions by file
             let mut file_to_functions: HashMap<String, Vec<Function>> = HashMap::new();
 
@@ -205,20 +173,6 @@ impl<'tcx> CallgraphVisitor<'tcx> {
 
                 println!("Created: {}", json_path.display());
             }
-
-            // Write call relationships in a format suitable for analysis
-            // let calls_path = output_dir.join("calls.json");
-            // let mut calls = Vec::new();
-
-            // // Serialize the static and dynamic calls
-            // let static_calls_json = serde_json::to_string_pretty(&self.static_calls)
-            //     .unwrap_or_else(|_| "[]".to_string());
-            // let dynamic_calls_json = serde_json::to_string_pretty(&self.dynamic_calls)
-            //     .unwrap_or_else(|_| "[]".to_string());
-
-            // // Write to files
-            // fs::write(output_dir.join("static_calls.json"), static_calls_json).ok();
-            // fs::write(output_dir.join("dynamic_calls.json"), dynamic_calls_json).ok();
         }
     }
 
@@ -273,17 +227,6 @@ impl<'tcx> CallgraphVisitor<'tcx> {
 
     pub fn format_span(&self, span: Span) -> String {
         let source_map = self.tcx.sess.source_map();
-        // println!("{:?}",span);
-        // let lo = self.tcx.sess.source_map().lookup_char_pos(span.lo());
-        // let hi = self.tcx.sess.source_map().lookup_char_pos(span.hi());
-        // format!(
-        //     "{}:{}:{}-{}:{}",
-        //     format!("{:?}", lo.file.name),
-        //     lo.line,
-        //     lo.col.to_usize(),
-        //     hi.line,
-        //     hi.col.to_usize()
-        // )
         source_map
             .span_to_filename(span)
             .into_local_path()
@@ -341,9 +284,9 @@ impl<'tcx> CallgraphVisitor<'tcx> {
                             for arg in args.args.iter() {
                                 match arg {
                                     rustc_hir::GenericArg::Type(ty) => {
-                                        // if let Some(type_info) = self.extract_type_origin_info(ty) {
-                                        //     generic_args.push(type_info);
-                                        // }
+                                        if let Some(type_info) = self.extract_type_origin_info(ty) {
+                                            generic_args.push(type_info);
+                                        }
                                     }
                                     rustc_hir::GenericArg::Lifetime(lt) => {
                                         generic_args.push(TypeOriginInfo {
@@ -1432,85 +1375,10 @@ impl<'tcx> intravisit::Visitor<'tcx> for CallgraphVisitor<'tcx> {
         self.tcx.hir()
     }
 
-    fn visit_expr(&mut self, expr: &'tcx rustc_hir::Expr<'_>) {
-        skip_generated_code!(expr.span);
-
-        let hir_id = expr.hir_id;
-        match expr.kind {
-            rustc_hir::ExprKind::Call(
-                rustc_hir::Expr {
-                    kind: rustc_hir::ExprKind::Path(ref qpath),
-                    ..
-                },
-                _,
-            ) => {
-                if let rustc_hir::QPath::Resolved(_, p) = qpath {
-                    if let rustc_hir::def::Res::Def(_, def_id) = p.res {
-                        self.static_calls.insert(Call {
-                            call_expr: hir_id,
-                            call_expr_span: expr.span,
-                            caller: self.cur_fn,
-                            caller_span: None,
-                            callee: def_id,
-                            callee_span: p.span,
-                        });
-                    }
-                }
-            }
-            rustc_hir::ExprKind::MethodCall(_, _, _, _) => {
-                let o_def_id = hir_id.owner;
-                let typeck_tables = self.tcx.typeck(o_def_id);
-                let substs = typeck_tables.node_args(hir_id);
-                let method_id = typeck_tables.type_dependent_def_id(hir_id).expect("fail");
-                let param_env = self.tcx.param_env(method_id);
-                if let Ok(Some(inst)) = self.tcx.resolve_instance_raw(ParamEnvAnd {
-                    param_env,
-                    value: (method_id, substs),
-                }) {
-                    let res_def_id = inst.def_id();
-                    match self.tcx.hir().get_if_local(res_def_id) {
-                        Some(rustc_hir::Node::TraitItem(rustc_hir::TraitItem { span, .. })) => {
-                            // dynamic calls resolve only to the trait method decl
-                            self.dynamic_calls.insert(Call {
-                                call_expr: hir_id,
-                                call_expr_span: expr.span,
-                                caller: self.cur_fn,
-                                caller_span: None,
-                                callee: res_def_id,
-                                callee_span: *span,
-                            });
-                        }
-                        Some(rustc_hir::Node::ImplItem(rustc_hir::ImplItem { span, .. }))
-                        | Some(rustc_hir::Node::Item(rustc_hir::Item { span, .. }))
-                        | Some(rustc_hir::Node::ForeignItem(rustc_hir::ForeignItem {
-                            span, ..
-                        })) => {
-                            // calls for which the receiver's type can be resolved
-                            self.static_calls.insert(Call {
-                                call_expr: hir_id,
-                                call_expr_span: expr.span,
-                                caller: self.cur_fn,
-                                caller_span: None,
-                                callee: res_def_id,
-                                callee_span: *span,
-                            });
-                        }
-                        None => (),
-                        _ => todo!(),
-                    };
-                }
-            }
-            _ => {}
-        }
-        // traverse
-        intravisit::walk_expr(self, expr);
-    }
-
     fn visit_item(&mut self, item: &'tcx rustc_hir::Item<'_>) {
         // skip_generated_code!(item.span);
         let hir_id = item.hir_id();
         // println!("{:?}",hir_id);
-
 
         // Handle modules - track module path for better function organization
         if let rustc_hir::ItemKind::Mod(module) = &item.kind {
@@ -1530,20 +1398,16 @@ impl<'tcx> intravisit::Visitor<'tcx> for CallgraphVisitor<'tcx> {
 
         if let rustc_hir::ItemKind::Fn(sig, generics, body_id) = item.kind {
             let def_id = hir_id.owner.to_def_id();
-            self.functions.insert((def_id, item.span));
-
             self.process_function_data(&sig, hir_id, body_id, item.span);
 
             push_walk_pop!(self, def_id, intravisit::walk_item(self, item));
 
             return;
         }
-        println!("{:?}",item.kind);
         if let rustc_hir::ItemKind::Trait(is_auto, unsafety, generics, _bounds, trait_items_) =
             item.kind
         {
             let def_id = hir_id.owner.to_def_id();
-            let trait_name = self.tcx.item_name(def_id).to_string();
 
             // Process all trait items
             for trait_item_ref in trait_items_ {
@@ -1576,18 +1440,7 @@ impl<'tcx> intravisit::Visitor<'tcx> for CallgraphVisitor<'tcx> {
         let def_id = hir_id.owner.to_def_id();
 
         match ti.kind {
-            rustc_hir::TraitItemKind::Fn(sig, rustc_hir::TraitFn::Required(_)) => {
-                // a method declaration
-                self.method_decls.insert(def_id);
-                self.method_impls.insert(def_id, vec![]);
-            }
             rustc_hir::TraitItemKind::Fn(sig, rustc_hir::TraitFn::Provided(body_id)) => {
-                // a method decl and def
-                self.method_decls.insert(def_id);
-                self.functions.insert((def_id, ti.span));
-                self.method_impls.entry(def_id).or_default().push(def_id);
-
-                // Process trait method data
                 self.process_function_data(&sig, hir_id, body_id, ti.span);
 
                 push_walk_pop!(self, def_id, intravisit::walk_trait_item(self, ti));
@@ -1608,8 +1461,6 @@ impl<'tcx> intravisit::Visitor<'tcx> for CallgraphVisitor<'tcx> {
         let def_id = hir_id.owner.to_def_id();
 
         if let rustc_hir::ImplItemKind::Fn(sig, body_id) = ii.kind {
-            self.functions.insert((def_id, ii.span));
-            // println!("{:?}",ii);
             // Process impl method data
             self.process_function_data(&sig, hir_id, body_id, ii.span);
 
@@ -1632,13 +1483,6 @@ impl<'tcx> intravisit::Visitor<'tcx> for CallgraphVisitor<'tcx> {
                         }
                     }
                 }
-            }
-
-            if let Some(decl_def_id) = decl_id {
-                self.method_impls
-                    .entry(decl_def_id)
-                    .or_default()
-                    .push(def_id);
             }
 
             push_walk_pop!(self, def_id, intravisit::walk_impl_item(self, ii));

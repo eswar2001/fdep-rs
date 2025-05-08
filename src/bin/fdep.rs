@@ -52,7 +52,7 @@ fn main() {
     let mut calls = CallgraphCallbacks { output_dir };
 
     let run_compiler = rustc_driver::RunCompiler::new(&args, &mut calls);
-    run_compiler.run();
+    let _ = run_compiler.run();
 }
 
 // Helper function to determine output directory from command-line arguments
