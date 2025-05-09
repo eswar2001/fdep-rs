@@ -168,8 +168,14 @@ impl<'tcx> CallgraphVisitor<'tcx> {
 
                 let json = serde_json::to_string_pretty(&functions)
                     .expect("Failed to serialize file functions");
-                fs::write(&json_path, json)
-                    .expect(&format!("Could not write JSON for file {}", file_path));
+                match fs::write(&json_path, json) {
+                    Ok(_) => {}
+                    Err(err) => println!(
+                        "{:?} {:?}",
+                        &format!("Could not write JSON for file {}", file_path),
+                        err
+                    ),
+                };
 
                 println!("Created: {}", json_path.display());
             }

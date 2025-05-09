@@ -1,9 +1,11 @@
+extern crate cargo_metadata;
 ///! This implementation is based on `cargo-miri`
 ///! https://github.com/rust-lang/miri/blob/master/src/bin/cargo-miri.rs
 extern crate rustc_version;
 extern crate wait_timeout;
-
+use cargo_metadata::{Metadata, Package};
 use rustc_version::VersionMeta;
+use std::collections::HashSet;
 use std::env;
 use std::fmt::Display;
 use std::path::{Path, PathBuf};
@@ -274,28 +276,63 @@ fn in_cargo_fdep() {
                 package_manifest_directory == current_dir
             }
         });
-        let mut visited_packages = Vec::new();
+        // let mut visited_packages = Vec::new();
         match package_index {
             Some(index) => process_package(metadata.packages.remove(index)),
             None => {
-                // process_package(metadata.root_package().unwrap().clone());
-                // root_package
-                if metadata.workspace_members.len() != 0 {
-                    for member in metadata.workspace_members.iter() {
-                        let package = metadata[member].clone();
-                        let package_manifest_path = Path::new(&package.manifest_path);
-                        if package_manifest_path.starts_with(current_dir.as_ref().unwrap())
-                            && !visited_packages.contains(&package.id.clone())
-                        {
-                            println!("{:?}", package.name);
-                            process_package(package.clone());
-                            visited_packages.push(package.id);
-                        }
-                    }
+                println!("{:#?}", metadata.workspace_members);
+                // println!("{:?}", metadata.workspace_default_packages());
+                println!("{:#?}", metadata.root_package());
+                let independant_packages = get_independant_packages(&metadata);
+                for package in independant_packages {
+                    process_package(package.clone());
                 }
+
+                // root_package
+                // if metadata.workspace_members.len() != 0 {
+                //     for member in metadata.workspace_members.iter() {
+                //         let package = metadata[member].clone();
+                //         let package_manifest_path = Path::new(&package.manifest_path);
+                //         if package_manifest_path.starts_with(current_dir.as_ref().unwrap())
+                //             && !visited_packages.contains(&package.id.clone())
+                //         {
+                //             println!("{:?}", package.name);
+                //             process_package(package.clone());
+                //             visited_packages.push(package.id);
+                //         }
+                //     }
+                // }
             }
         }
     }
+}
+
+fn get_independant_packages(metadata: &Metadata) -> Vec<&Package> {
+    let all_packages = metadata.workspace_default_packages();
+
+    // 1. Gather all crate names
+    let all_names: HashSet<_> = all_packages.iter().map(|pkg| pkg.name.clone()).collect();
+
+    // 2. Gather names of local workspace dependencies
+    let mut dep_names = HashSet::new();
+    for pkg in &all_packages {
+        for dep in &pkg.dependencies {
+            if dep.source.is_none() {
+                dep_names.insert(dep.name.clone());
+            }
+        }
+    }
+
+    // 3. Root package names = not depended on by any other package
+    let root_names: HashSet<_> = all_names.difference(&dep_names).cloned().collect();
+
+    // 4. Collect the actual Package structs matching the root names
+    let root_packages: Vec<_> = all_packages
+        .into_iter()
+        .filter(|pkg| root_names.contains(&pkg.name))
+        .collect();
+
+    root_packages
 }
 
 fn process_package(package: cargo_metadata::Package) {

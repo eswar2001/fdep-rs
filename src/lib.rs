@@ -59,8 +59,6 @@ pub fn analyze<'tcx>(tcx: &TyCtxt<'tcx>) {
     // Dump collected data
     visitor.dump();
 
-    // Print completion message
-    println!("Callgraph analysis completed successfully!");
 }
 
 // Helper function to determine output directory from command-line arguments
